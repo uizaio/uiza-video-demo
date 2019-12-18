@@ -1,0 +1,224 @@
+#header-uiza {
+  width: 100%;
+  height: 175px;
+  padding: 40px 0 85px 0;
+  display: flex;
+  justify-content: space-between;
+  .uiza-logo {
+    width: 105px;
+    height: 51px;
+  }
+  .block-signin-signup {
+    height: 51px;
+    width: 204px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    .btn-sign-up {
+      height: 30px;
+      width: 100px;
+      border-radius: 4px;
+      background: #DC3545;
+      cursor: pointer;
+      span {
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        display: inline;
+        color: #FFFFFF;
+        margin-left: 30%;
+      }
+    }
+    .btn-sign-in {
+      height: 30px;
+      width: 94px;
+      border-radius: 4px;
+      background: rgba(245, 124, 124, 0.07);
+      border: 1px solid #F57C7C;
+      cursor: pointer;
+      span {
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        color: #F57C7C;
+        margin-left: 30%;
+      }
+    }
+  }
+}
+
+#uiza-content {
+  width: 100%;
+  height: auto;
+  background: #FFFFFF;
+  margin-bottom: 80px;
+}
+#upload-video-block {
+  width: 700px;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  background: #FFFFFF;
+  .big-title {
+    font-family: $ibm-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #77909D;
+    margin-bottom: 65px;
+    display: block;
+  }
+  .description-note {
+    text-align: center;
+    margin-bottom: 19px;
+    span {
+      font-family: $ibm-font;
+      display: block;
+      margin-bottom: 9px;
+    }
+    .title {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      // line-height: 18px;
+      color: #4A4952;
+      
+
+    }
+    .video-des {
+      font-size: 12px;
+      // line-height: 15px;
+      font-style: normal;
+      font-weight: normal;
+      color: #B1BBC1;
+    }
+
+  }
+  #dropZone {
+    width: 100%;
+    height: 182px;
+    background: #F9FBFC;
+    border: 1px dashed #A8BED7;
+    box-sizing: border-box;
+    border-radius: 4px;
+    // padding: 50px;
+    .upload-icon {
+      width: 60px;
+      height: 48px;
+      display: block;
+      margin: 17px auto;
+
+    }
+    .upload-btn-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      .btn {
+        height: 32px;
+        border: 1px solid #CED2D4;
+        background-color: white;
+        border-radius: 4px;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 4px #CED2D4;
+        padding: 2px 20px;
+        span {
+          font-family: $ibm-font;
+          font-style: normal;
+          font-size: 12px;
+          color: #464B4E;
+        }
+      }
+      input[type=file] {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+  
+    .text-with-line {
+      span {
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        color: #A4AAAD;
+      }
+    }
+    .last-text {
+      font-family: $ibm-font;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      color: #515659;
+    }
+  }
+  .sign-up-now {
+    margin-top: 49px;
+    margin-bottom: 37px;
+    a {
+      text-decoration-line: underline;
+      color: #DC3545;
+    }
+    span {
+      font-family: $ibm-font;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+  .benefit {
+    width: 382px;
+    margin-left: 30%;
+    span {
+      font-family: $ibm-font;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    &-child {
+      margin-bottom: 23px;
+      display: flex;
+      &-mark-icon {
+        width: 12px;
+        height: 9px;
+        margin-right: 24px;
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+#uiza-tab {
+  width: 231px;
+  height: 36px;
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px rgba(125, 129, 131, 0.101336);
+  border-radius: 4px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;  
+  padding: 5px 20px;
+  margin-bottom: 40px;
+  span {
+    font-family: $ibm-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #77909D;
+    cursor: pointer;
+    font-weight: bold;;
+  }
+  .active {
+    color: #DC3545;
+  }
+}

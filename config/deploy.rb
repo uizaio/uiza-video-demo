@@ -1,4 +1,4 @@
-# Change these
+#Change these
 server '35.198.213.120', port: 22, roles: [:web, :app, :db], primary: true
 set :repo_url,        'git@github.com:uizaio/uiza-video-demo.git'
 set :application,     'uiza'
@@ -77,7 +77,7 @@ namespace :deploy do
   # before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  # after  :finishing,    :restart
 end
 
 # ps aux | grep puma    # Get puma pid

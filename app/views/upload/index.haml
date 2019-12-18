@@ -1,1 +1,12 @@
-dfdsfsdf
+%form{:action => "/"}
+  .form-group
+    %label{:for => "email"} Email address:
+    %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
+  .form-group
+    %label{:for => "pwd"} Password:
+    %input#pwd.form-control{:placeholder => "Enter password", :type => "password"}/
+  .form-group.form-check
+    %label.form-check-label
+      %input.form-check-input{:type => "checkbox"}/
+      Remember me
+  %button.btn.btn-primary{:type => "submit"} Submit

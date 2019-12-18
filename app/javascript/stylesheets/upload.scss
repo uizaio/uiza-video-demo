@@ -1,0 +1,128 @@
+#header-uiza {
+  width: 100%;
+  height: 175px;
+  padding: 40px 0 85px 0;
+  display: flex;
+  justify-content: space-between;
+  .uiza-logo {
+    width: 105px;
+    height: 51px;
+  }
+  .block-signin-signup {
+    height: 51px;
+    width: 204px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    .btn-sign-up {
+      height: 30px;
+      width: 100px;
+      border-radius: 4px;
+      background: #DC3545;
+      cursor: pointer;
+      span {
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        display: inline;
+        color: #FFFFFF;
+        margin-left: 30%;
+      }
+    }
+    .btn-sign-in {
+      height: 30px;
+      width: 94px;
+      border-radius: 4px;
+      background: rgba(245, 124, 124, 0.07);
+      border: 1px solid #F57C7C;
+      cursor: pointer;
+      span {
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        color: #F57C7C;
+        margin-left: 30%;
+      }
+    }
+  }
+}
+
+#uiza-content {
+  width: 100%;
+  height: auto;
+  background: #77909D;
+}
+#upload-video-block {
+  width: 700px;
+  height: 800px;
+  margin: auto;
+  text-align: center;
+  background: #FFFFFF;
+  .big-title {
+    font-family: $ibm-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    color: #77909D;
+    margin-bottom: 65px;
+    display: block;
+  }
+  .description-note {
+    text-align: center;
+    margin-bottom: 19px;
+    span {
+      font-family: $ibm-font;
+      display: block;
+      margin-bottom: 9px;
+    }
+    .title {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      // line-height: 18px;
+      color: #4A4952;
+      
+
+    }
+    .video-des {
+      font-size: 12px;
+      // line-height: 15px;
+      font-style: normal;
+      font-weight: normal;
+      color: #B1BBC1;
+    }
+
+  }
+}
+
+#uiza-tab {
+  width: 231px;
+  height: 36px;
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px rgba(125, 129, 131, 0.101336);
+  border-radius: 4px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;  
+  padding: 5px 20px;
+  margin-bottom: 40px;
+  span {
+    font-family: $ibm-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #77909D;
+    cursor: pointer;
+    font-weight: bold;;
+  }
+  .active {
+    color: #DC3545;
+  }
+}

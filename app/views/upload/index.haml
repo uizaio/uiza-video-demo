@@ -1,12 +1,14 @@
-%form{:action => "/"}
-  .form-group
-    %label{:for => "email"} Email address:
-    %input#email.form-control{:placeholder => "Enter email", :type => "email"}/
-  .form-group
-    %label{:for => "pwd"} Password:
-    %input#pwd.form-control{:placeholder => "Enter password", :type => "password"}/
-  .form-group.form-check
-    %label.form-check-label
-      %input.form-check-input{:type => "checkbox"}/
-      Remember me
-  %button.btn.btn-primary{:type => "submit"} Submit
+.container
+  .row
+    .col
+      #uiza-content
+        = render 'layouts/toggleable_tabs'
+        #upload-video-block
+          %span.big-title
+            Simple Video sharing
+          .description-note
+            %span.title Upload a video
+            %span.video-des Maximum 5 minutes  and 100 MB size per file
+            %span.video-des Basic format (.mp4, .m4v, .mov, .avi, .ts, .webm)
+          
+     

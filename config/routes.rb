@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'upload#index'
 
   resources :upload, only: [:index] do
-    put '/:code/edit', to: 'upload#edit', on: :collection
+    get '/:code/edit', to: 'upload#edit', on: :collection
   end
   resources :live, only: [:index]
 

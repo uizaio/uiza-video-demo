@@ -4,9 +4,9 @@
       #header-uiza
         %img.uiza-logo{:alt => "Smiley face",:src => "/img/icon/uiza_logo_color.png"}
         .block-signin-signup
-          .btn-sign-up
+          .btn-sign-up{:onclick => "location.href='#{ENV['UIZA_SIGNUP_URL']}';"}
             %span Sign up
-          .btn-sign-in
+          .btn-sign-in{:onclick => "location.href='#{ENV['UIZA_SIGNIN_URL']}';"}
             %span Sign in
 
 

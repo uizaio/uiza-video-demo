@@ -123,7 +123,6 @@
         border: 1px solid #CED2D4;
         background-color: white;
         border-radius: 4px;
-        background: #FFFFFF;
         box-shadow: 0px 1px 4px #CED2D4;
         padding: 2px 20px;
         span {
@@ -235,7 +234,6 @@
     padding: 14px 14px 18px 14px;
   }
   .upload-video-success {
-    display: none;
     width: 100%;
     height: auto;
     margin-top: 64px;
@@ -438,4 +436,140 @@
       }
     }
   }
+  .upload-video-fail {
+    width: 100%;
+    height: auto;
+    margin-top: 64px;
+    .thumbnail-top {
+      height: 170px;
+      width: 100%;
+      background: #E5E5E5;
+      position: relative;
+      .state-upload {
+        position: absolute;
+        top: 8px;
+        right: 14px;
+        height: auto;
+      }
+    }
+    .content-bottom {
+      margin-top: 18px;
+      height: auto;
+      .progress {
+        background-color: #F3F2F2;
+        height: 9px;
+        position: relative;
+        width: 100%;
+        &-bar-load {
+          height: 100%;
+          position: relative;
+          background: linear-gradient(90deg, #DC3545 35.03%, rgba(220, 53, 69, 0.19) 102%);
+          width: 80%;
+        }
+      }
+      .upload-value {
+        margin-top: 10px;;
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        color: #DC3545;
+        text-align: right;
+      }
+    }
+  }
+
+}
+#upload-fail-modal {
+  .modal-dialog {
+    .modal-content {
+      top: 290px;
+      width: 751px;
+      height: 272px;
+      background: #FFFFFF;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.271711);
+      border-radius: 4px;
+      padding: 5px 11px;
+      .modal-header {
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: none;
+        .close-icon-modal {
+          cursor: pointer;
+        }
+      }
+      .modal-body {
+        text-align: center;
+        .title {
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 24px;
+          line-height: 19px;
+          color: #4A4952;
+          margin-bottom: 25px;
+        }
+        .content-fail {
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 19px;
+          color: #4A4952;
+          margin-bottom: 25px;
+        }
+        .action {
+          display: flex;
+          width: 100%;
+          height: 30px;
+          margin-left: 230px;
+          .btn-close-modal{
+            width: 100px;
+            height: 30px;
+            background-color: #EBEBEB;;
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            color: #54535C;
+            text-align: center;
+            padding-top: 6px;
+            cursor: pointer;
+            margin-right: 11px;
+          }
+          .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            cursor: pointer;
+            .btn {
+              height: 30px;
+              border: 1px solid #CED2D4;
+              border-radius: 4px;
+              background-color: #DC3545;;
+              box-shadow: 0px 1px 4px #CED2D4;
+              padding: 2px 20px;
+              font-family: $ibm-font;
+              font-style: normal;
+              font-size: 12px;
+              color: #FFFFFF;
+            }
+            input[type=file] {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }

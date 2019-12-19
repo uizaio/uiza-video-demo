@@ -3,7 +3,7 @@
     .col
       #edit-upload
         = render 'layouts/toggleable_tabs'
-        .upload-video-success
+        .upload-video-success{:style => "display: none;"}
           .component-video
             .thumbnail-top
               .view
@@ -32,7 +32,7 @@
                   Sign Up Now for better experience
                 .btn-sign-up{:onclick => "location.href='#';"}
                   Sign up
-        .upload-video-progress
+        .upload-video-progress{:style => "display: none;"}
           .component-video
             .thumbnail-top
               .state-upload
@@ -43,3 +43,31 @@
               .upload-value
                 Uploading...
                 %span.value-progres 80%
+        .upload-video-fail
+          .component-video
+            .thumbnail-top
+              .state-upload
+                %img.icon-success{:alt => "uiza-upload",:src => "/img/icon/alert-fail.png"}
+            .content-bottom
+              .progress
+                .progress-bar-load
+              .upload-value
+                Failed! File is too large
+//modal upload fail
+#upload-fail-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %img.close-icon-modal{:alt => "uiza-upload",:src => "/img/icon/close-icon.png"}
+      .modal-body
+        .title
+          Failed!
+        .content-fail
+          Uploading Failed! The file is too large or wrong format. Please choose another file.
+        .action
+          .btn-close-modal
+            Close
+          .upload-btn-wrapper
+            %button.btn
+              Upload new video
+            %input#re-upload-video{:name => "myfile", :type => "file"}

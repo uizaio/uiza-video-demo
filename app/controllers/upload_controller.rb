@@ -3,6 +3,6 @@ class UploadController < ApplicationController
   end
 
   def edit
-    @upload = Upload.find params[:id]
+    @upload = Upload.find_by_code(params[:code])
   end
 end

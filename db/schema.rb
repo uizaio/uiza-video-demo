@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_015058) do
   end
 
   create_table "uploads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", default: ""
     t.string "code", limit: 100, default: ""
     t.string "file_local_path", default: ""
     t.string "uiza_id", limit: 100, default: ""

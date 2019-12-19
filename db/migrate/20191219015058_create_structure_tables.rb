@@ -3,6 +3,7 @@ class CreateStructureTables < ActiveRecord::Migration[6.0]
     table_options = 'ENGINE=InnoDB DEFAULT CHARSET=utf8'
 
     create_table 'uploads', force: :cascade, options: table_options do |t|
+      t.string 'name', default: ''
       t.string  'code', limit: 100, default: ''
       t.string  'file_local_path', default: ''
       t.string  'uiza_id', limit: 100, default: ''

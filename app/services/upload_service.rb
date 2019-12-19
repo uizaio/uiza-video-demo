@@ -1,6 +1,6 @@
 class UploadService
-  def create(file_local_path)
-    upload = Upload.create(file_local_path: file_local_path)
+  def create(name, file_local_path)
+    upload = Upload.create(name: name, file_local_path: file_local_path)
     [true, upload, 200]
   end
 

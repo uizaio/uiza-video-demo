@@ -1,0 +1,73 @@
+.container
+  .row
+    .col
+      #edit-upload
+        = render 'layouts/toggleable_tabs'
+        .upload-video-success{:style => "display: none;"}
+          .component-video
+            .thumbnail-top
+              .view
+                %img.icon-eye{:alt => "uiza-upload",:src => "/img/icon/eye-icon.png"}
+                .text
+                  7550 view
+              .state-upload
+                %img.icon-success{:alt => "uiza-upload",:src => "/img/icon/alert-success.png"}
+              .play-icon
+                %img.icon-play{:alt => "uiza-upload",:src => "/img/icon/play-icon-2x.png"}
+            .content-bottom
+              .info-video
+                .video-name Tom & Jerry.mp4
+                .time-upload moment ago
+              .action
+                .btn-cus.get-embed
+                  Get Embbed
+                .btn-cus.copi-link
+                  Copy link
+          .popup-sign-up
+            .content
+              .header
+                %img.close-btn{:alt => "uiza-upload",:src => "/img/icon/close-icon.png"}
+              .bottom
+                .text
+                  Sign Up Now for better experience
+                .btn-sign-up{:onclick => "location.href='#';"}
+                  Sign up
+        .upload-video-progress{:style => "display: none;"}
+          .component-video
+            .thumbnail-top
+              .state-upload
+                %img.icon-success{:alt => "uiza-upload",:src => "/img/icon/alert-process.png"}
+            .content-bottom
+              .progress
+                .progress-bar-load
+              .upload-value
+                Uploading...
+                %span.value-progres 80%
+        .upload-video-fail
+          .component-video
+            .thumbnail-top
+              .state-upload
+                %img.icon-success{:alt => "uiza-upload",:src => "/img/icon/alert-fail.png"}
+            .content-bottom
+              .progress
+                .progress-bar-load
+              .upload-value
+                Failed! File is too large
+//modal upload fail
+#upload-fail-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %img.close-icon-modal{:alt => "uiza-upload",:src => "/img/icon/close-icon.png"}
+      .modal-body
+        .title
+          Failed!
+        .content-fail
+          Uploading Failed! The file is too large or wrong format. Please choose another file.
+        .action
+          .btn-close-modal
+            Close
+          .upload-btn-wrapper
+            %button.btn
+              Upload new video
+            %input#re-upload-video{:name => "myfile", :type => "file"}

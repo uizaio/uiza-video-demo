@@ -63,6 +63,7 @@
   margin: auto;
   text-align: center;
   background: #FFFFFF;
+  margin-top: 40px;
   .big-title {
     font-family: $ibm-font;
     font-style: normal;
@@ -207,7 +208,7 @@
   display: flex;
   justify-content: space-between;  
   padding: 5px 20px;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
   span {
     font-family: $ibm-font;
     font-style: normal;
@@ -220,5 +221,221 @@
   }
   .active {
     color: #DC3545;
+  }
+}
+#edit-upload {
+  .component-video {
+    width: 327px;
+    height: 316px;
+    background:#FFFFFF;
+    border: 1px solid #F0F0F0;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 16px rgba(219, 219, 219, 0.5);
+    border-radius: 2px;
+    padding: 14px 14px 18px 14px;
+  }
+  .upload-video-success {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin-top: 64px;
+    .thumbnail-top {
+      height: 170px;
+      width: 100%;
+      background: #cccccc;
+      position: relative;
+      background: url("/img/image/thumbnail-default.png") no-repeat;
+      background-size: cover; 
+      display: flex;
+      .view {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        height: 16px;
+        top: 14px;
+        left: 14px;
+        .icon-eye {
+          width: 21px;
+          height: 13px;
+          margin-right: 12px;;
+        }
+        .text {
+          width: 58px;
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 11px;
+          line-height: 14px;
+          color: #FFFFFF;
+
+        }
+
+      }
+      .state-upload {
+        position: absolute;
+        top: 8px;
+        right: 14px;
+        height: auto;
+      }
+      .play-icon {
+        position: absolute;
+        top: 38%;
+        left: 40%;
+      }
+      
+    }
+    .content-bottom {
+      margin-top: 14px;
+      height: 120px;
+      .info-video {
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: bold;
+        color: #77909D;
+        line-height: 15px;
+        .video-name {
+          font-size: 12px;
+        }
+        .time-upload {
+          font-size: 8px;
+        }
+      }
+      .action {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 40px;
+        .get-embed {
+          width: 97px;
+          height: 28px;
+          border: 1px solid #D2D5D7;
+          box-sizing: border-box;
+          border-radius: 4px;
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 15px;
+          color: #4A4952;
+          text-align: center;
+          padding-top: 5px;
+          cursor: pointer;
+        }
+        .copi-link {
+          width: 97px;
+          height: 28px;
+          border: 1px solid #DC3545;
+          background-color: #DC3545;;
+          box-sizing: border-box;
+          border-radius: 4px;
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 15px;
+          color: #FFFFFF;
+          text-align: center;
+          padding-top: 5px;
+          cursor: pointer;
+          margin-left: 10px;
+        }
+      }
+    }
+    
+    .popup-sign-up {
+      display: flex;
+      justify-content: flex-end;
+      .content {
+        width: 385px;
+        height: 250px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.271711);
+        border-radius: 4px;
+        padding: 21px 25px;
+        .header {
+          height: 12px;
+          width: 100%;
+          margin-bottom: 57px;
+          .close-btn {
+            float: right;
+            cursor: pointer;
+          }
+        }
+        .bottom {
+          text-align: center;
+          width: 100%;
+          
+          .text {
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            color: #77909D;
+            margin-bottom: 34px;
+          }
+          .btn-sign-up {
+            width: 100px;
+            height: 30px;
+            border: 1px solid #DC3545;
+            background-color: #DC3545;;
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            color: #FFFFFF;
+            text-align: center;
+            padding-top: 5px;
+            cursor: pointer;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+  .upload-video-progress {
+    width: 100%;
+    height: auto;
+    margin-top: 64px;
+    .thumbnail-top {
+      height: 170px;
+      width: 100%;
+      background: #E5E5E5;
+      position: relative;
+      .state-upload {
+        position: absolute;
+        top: 8px;
+        right: 14px;
+        height: auto;
+      }
+    }
+    .content-bottom {
+      margin-top: 18px;
+      height: auto;
+      .progress {
+        background-color: #F3F2F2;
+        height: 9px;
+        position: relative;
+        width: 100%;
+        &-bar-load {
+          height: 100%;
+          position: relative;
+          background: linear-gradient(90deg, #DC3545 35.03%, rgba(220, 53, 69, 0.19) 102%);
+          width: 80%;
+        }
+      }
+      .upload-value {
+        margin-top: 10px;;
+        font-family: $ibm-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        color: #77909D;
+        
+      }
+    }
   }
 }

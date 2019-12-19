@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :upload, only: [:create] do
-        put :progress, on: :collection
+        put '/:code/progress', to: 'upload#progress', on: :collection
       end
     end
   end

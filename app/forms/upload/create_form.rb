@@ -1,18 +1,18 @@
 class Upload::CreateForm
   include ActiveModel::Model
-  attr_accessor :file_local_path, :name
+  attr_accessor :name, :data
 
-  validates :file_local_path, :name, presence: true
+  validates :name, :data, presence: true
 
   def initialize(params)
-    @file_local_path = params[:file_local_path]
+    @data = params[:data]
     @name = params[:name]
   end
 
   def create
     if valid?
       upload_service = UploadService.new()
-      upload_service.create(name, file_local_path)
+      upload_service.create(name, data)
     else
       [false, errors.messages, 400]
     end

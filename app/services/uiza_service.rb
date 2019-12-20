@@ -39,7 +39,7 @@ class UizaService
     end
   end
 
-  def update(uiza_id, )
+  def update(uiza_id, name)
 
   end
 

@@ -36,6 +36,8 @@ $(document ).ready(function() {
   $('#re-upload-video').on("change", function(){ 
     let file = $(this).prop('files');
     upload_files_with_progress(file[0]);
+    $('#upload-fail-modal').modal('hide');
+
     // console.log(file);
    });
   function upload_files_with_progress(fileData) {
@@ -52,7 +54,6 @@ $(document ).ready(function() {
         if(this.status == 200) {
           videoUploadSuccess(this.response);
           // videoUploadFail(this.response);
-
 
         }else {
           videoUploadFail(this.response);

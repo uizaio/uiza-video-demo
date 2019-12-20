@@ -19,11 +19,9 @@ class UizaService
 
   def create(name, thumbnail, url)
     params = {
-      name: "The Evolution of Dance",
-      url: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4",
-      inputType: "http",
-      description: "Judson Laipply did a fantastic job in performing various dance moves",
-      shortDescription: "How good a dancer can you be?"
+      name: name,
+      url: 'https://hoptq.s3-ap-southeast-1.amazonaws.com/Serija+%E2%80%9EPet%E2%80%9C%2C+06.+epizoda-JwGS3w5nKsg.mp4',
+      inputType: "http"
     }
 
     begin
@@ -40,7 +38,36 @@ class UizaService
   end
 
   def update(uiza_id, name)
+    params = {
+      id: uiza_id,
+      name: name
+    }
 
+    begin
+      entity = Uiza::Entity.update params
+      puts entity.id
+      puts entity.name
+    rescue Uiza::Error::UizaError => e
+      puts "description_link: #{e.description_link}"
+      puts "code: #{e.code}"
+      puts "message: #{e.message}"
+    rescue StandardError => e
+      puts "message: #{e.message}"
+    end
+  end
+
+  def publish(uiza_id)
+    begin
+      response = Uiza::Entity.publish uiza_id
+      puts response.message
+      puts response.entityId
+    rescue Uiza::Error::UizaError => e
+      puts "description_link: #{e.description_link}"
+      puts "code: #{e.code}"
+      puts "message: #{e.message}"
+    rescue StandardError => e
+      puts "message: #{e.message}"
+    end
   end
 
   def delete(uiza_id)

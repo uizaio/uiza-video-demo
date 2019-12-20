@@ -296,6 +296,11 @@
         line-height: 15px;
         .video-name {
           font-size: 12px;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
         }
         .time-upload {
           font-size: 8px;
@@ -487,7 +492,9 @@
 #upload-fail-modal {
   .modal-dialog {
     .modal-content {
-      top: 290px;
+      top: 200px;
+      left: -120px;
+
       width: 751px;
       height: 272px;
       background: #FFFFFF;

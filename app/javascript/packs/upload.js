@@ -19,7 +19,9 @@ $(document ).ready(function() {
   })
   function hidenModal(selectorElement, targetModal){
     $(selectorElement).click(function(){
-      $(targetModal).modal('hide');
+      // $(targetModal).modal('hide');
+      window.location.href = "/upload";
+
     })
     
   }
@@ -31,6 +33,13 @@ $(document ).ready(function() {
     upload_files_with_progress(file[0]);
    });
 
+  $('#re-upload-video').on("change", function(){ 
+    let file = $(this).prop('files');
+    upload_files_with_progress(file[0]);
+    $('#upload-fail-modal').modal('hide');
+
+    // console.log(file);
+   });
   function upload_files_with_progress(fileData) {
     var formdata = new FormData();
     formdata.append("name", fileData.name);
@@ -44,6 +53,8 @@ $(document ).ready(function() {
       if (this.readyState == 4) {
         if(this.status == 200) {
           videoUploadSuccess(this.response);
+          // videoUploadFail(this.response);
+
         }else {
           videoUploadFail(this.response);
         }

@@ -2,7 +2,7 @@ class UploadController < ApplicationController
   def index
   end
 
-  def edit
+  def show
     @upload = Upload.find_by_code(params[:code])
   end
 end

@@ -1,0 +1,43 @@
+%script{:src => "https://sdk.uiza.io/uizaplayer.js"}
+/ 2. The video player will prepend the player into this <div> tag. You should create css style for this tag
+.row
+  .col-md-3
+  .col-md-6
+    #player
+  .col-md-3
+:javascript
+  // 3. This code creates an UIZA player, and return the player for the callback
+  UZ.Player.init(
+    '#player', // player element, exp: #element_id, .element_class
+    {
+      appId: '9fc027f55a82492e9fcbf4e04ca4e058',
+      playerId: '57f42669-9b44-4e29-8b2f-0d84e33a7f6f', // option
+      playerVersion: 4, // you are using the newest player, player version support API version
+      entityId: '97cd846f-f2ff-4a76-969c-5b113adea988',
+      width: '100%', // player width, percentage or pixel, exp: '400px'
+      height: '400px', // player height, percentage or pixel, exp: '200px'
+    },
+    function(player) {
+      // 4. You can add logo at here
+      var homepage = 'https://www.uiza.io'; // change homepage here
+      var host = window.location.hostname;
+      var logo = '//' + host + '/img/icon/video_uiza_logo.png'; // change logo url here
+
+      var style_logo = 'position: absolute; top: 23px; right: 64px; z-index: 999999;';
+      var style_logo_img = 'display: block; height: 32px; width: auto; margin: 10px;';
+      var logo_html = '<div style="' + style_logo + '">' +
+        '<a href="' + homepage + '" target="_blank">' +
+          '<img style="' + style_logo_img + '" src="'+ logo +'"/>' +
+        '</a>' +
+      '</div>';
+
+      player.append('.vjs-v3', logo_html);
+      // 5. You can add event listeners at here
+      player.on('play', function() {
+        console.log('play');
+      });
+      player.on('pause', function() {
+        console.log('pause');
+      });
+    }
+  );

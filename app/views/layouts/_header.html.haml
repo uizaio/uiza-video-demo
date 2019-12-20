@@ -2,7 +2,7 @@
   .row
     .col
       #header-uiza
-        %img.uiza-logo{:alt => "Smiley face",:src => "/img/icon/uiza_logo_color.png"}
+        %img.uiza-logo{:alt => "Smiley face",:src => "/img/icon/uiza_logo_color.png", :onclick => "location.href='/';"}
         .block-signin-signup
           .btn-sign-up{:onclick => "location.href='#{ENV['UIZA_SIGNUP_URL']}';"}
             %span Sign up

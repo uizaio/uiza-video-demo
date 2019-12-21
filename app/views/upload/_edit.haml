@@ -2,10 +2,10 @@
   .upload-video-success
     .component-video
       .thumbnail-top
-        .view
-          %img.icon-eye{:alt => "uiza-upload",:src => "/img/icon/eye-icon.png"}
-          .text
-            7550 view
+        / .view
+        /   %img.icon-eye{:alt => "uiza-upload",:src => "/img/icon/eye-icon.png"}
+        /   .text
+        /     7550 view
         .state-upload
           %img.icon-success{:alt => "uiza-upload",:src => "/img/icon/alert-success.png"}
         .play-icon
@@ -13,7 +13,7 @@
       .content-bottom
         .info-video
           .video-name#video-name Demo
-          .time-upload moment ago
+          .time-upload a moment ago
         .action
           .btn-cus.get-embed
             Get Embbed
@@ -26,7 +26,7 @@
         .bottom
           .text
             Sign Up Now for better experience
-          .btn-sign-up{:onclick => "location.href='#';"}
+          .btn-sign-up{:onclick => "location.href='#{ENV['UIZA_SIGNUP_URL']}';"}
             Sign up
   .upload-video-progress
     .component-video

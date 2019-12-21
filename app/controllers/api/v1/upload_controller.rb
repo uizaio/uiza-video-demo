@@ -14,20 +14,4 @@ class Api::V1::UploadController < BaseApiController
       }, status: result[2]
     end
   end
-
-  # def progress
-  #   upload_progress_form = Upload::ProgressForm.new(params)
-  #   result = upload_progress_form.progress()
-  #   if result[0]
-  #     render json: {
-  #       success: true, data: {upload: result[1]},
-  #       message: 'Upload successful.'
-  #     }
-  #   else
-  #     render json: {
-  #       success: false, errrors: result[1],
-  #       message: 'Upload failed.'
-  #     }, status: result[2]
-  #   end
-  # end
 end

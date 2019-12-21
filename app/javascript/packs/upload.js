@@ -40,6 +40,15 @@ $(document ).ready(function() {
 
     // console.log(file);
    });
+
+  $('.copi-link').click(function() {
+    console.log('Copy click');
+  });
+
+  $('.get-embed').click(function() {
+    console.log('Get embed');
+  });
+
   function upload_files_with_progress(fileData) {
     var formdata = new FormData();
     formdata.append("name", fileData.name);
@@ -93,14 +102,16 @@ $(document ).ready(function() {
     console.log(videoName);
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
+
+    $('.thumbnail-top').css('background-image', 'url(https://ung-dung.com/images/upanh_online/upanh.png)');
+
   }
   function videoUploadFail(res) {
-    $('#upload-video-block').css("display", "none");
+    $('#upload-video-block').css("dsplay", "none");
     $('#edit-upload').css("display", "block");
     $('.upload-video-fail').css("display", "block");
     $('.upload-video-progress').css("display", "none")
     $('.upload-video-success').css("display", "none");
     $("#upload-fail-modal").modal();
   }
-  
 });

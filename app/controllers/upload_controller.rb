@@ -3,6 +3,6 @@ class UploadController < ApplicationController
   end
 
   def show
-    @upload = Upload.find_by_code(params[:code])
+    @upload = Upload.find_by_code(params[:code]).first
   end
 end

@@ -41,11 +41,20 @@ $(document ).ready(function() {
     // console.log(file);
    });
 
-  $('.copi-link').click(function() {
+  function copyToClipboard(text) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(text).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+
+  $(".copi-link").click(function() {
+    copyToClipboard();
     console.log('Copy click');
   });
 
-  $('.get-embed').click(function() {
+  $(".get-embed").click(function() {
     console.log('Get embed');
   });
 
@@ -99,12 +108,18 @@ $(document ).ready(function() {
     $('.upload-video-fail').css("display", "none");
     $('.upload-video-success').css("display", "block");
     let videoName = resObj.data.upload.name;
-    console.log(videoName);
+    let videoCode = resObj.data.upload.code;
+    let videoUrl = "/upload/" + videoCode;
+
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
 
     $('.thumbnail-top').css('background-image', 'url(https://ung-dung.com/images/upanh_online/upanh.png)');
+    $('.thumbnail-top').css('cursor', 'pointer');
+    $('.thumbnail-top').attr("onclick", 'window.location="' + videoUrl + '";');
 
+    $('.copi-link').attr("name", window.location.origin + videoUrl);
+    $('.get-embed').attr("name", window.location.origin + videoUrl);
   }
   function videoUploadFail(res) {
     $('#upload-video-block').css("dsplay", "none");

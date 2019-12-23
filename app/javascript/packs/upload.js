@@ -19,9 +19,7 @@ $(document ).ready(function() {
   })
   function hidenModal(selectorElement, targetModal){
     $(selectorElement).click(function(){
-      // $(targetModal).modal('hide');
       window.location.href = "/upload";
-
     })
     
   }
@@ -37,8 +35,6 @@ $(document ).ready(function() {
     let file = $(this).prop('files');
     upload_files_with_progress(file[0]);
     $('#upload-fail-modal').modal('hide');
-
-    // console.log(file);
    });
 
   function copyToClipboard(text) {
@@ -50,11 +46,12 @@ $(document ).ready(function() {
   }
 
   $(".copi-link").click(function() {
-    copyToClipboard();
+    copyToClipboard('Copy click');
     console.log('Copy click');
   });
 
   $(".get-embed").click(function() {
+    copyToClipboard('Get embed');
     console.log('Get embed');
   });
 
@@ -71,8 +68,6 @@ $(document ).ready(function() {
       if (this.readyState == 4) {
         if(this.status == 200) {
           videoUploadSuccess(this.response);
-          // videoUploadFail(this.response);
-
         }else {
           videoUploadFail(this.response);
         }
@@ -117,8 +112,8 @@ $(document ).ready(function() {
     $('.thumbnail-top').css('cursor', 'pointer');
     $('.thumbnail-top').attr("onclick", 'window.location="' + videoUrl + '";');
 
-    $('.copi-link').attr("name", window.location.origin + videoUrl);
-    $('.get-embed').attr("name", window.location.origin + videoUrl);
+    $('.copi-link').val(window.location.origin + videoUrl);
+    $('.get-embed').val(window.location.origin + videoUrl);
   }
   function videoUploadFail(res) {
     $('#upload-video-block').css("dsplay", "none");

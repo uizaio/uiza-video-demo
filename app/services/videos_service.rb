@@ -23,7 +23,6 @@ class VideosService
 
       [true, video, 200]
     rescue Exception => e
-      binding.pry
       [false, e.errors, 422]
     end
   end

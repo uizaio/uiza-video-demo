@@ -245,7 +245,6 @@
       width: 100%;
       background: #cccccc;
       position: relative;
-      background: url("/img/image/thumbnail-default.png") no-repeat;
       background-size: cover; 
       display: flex;
       .view {
@@ -408,6 +407,7 @@
     .thumbnail-top {
       height: 170px;
       width: 100%;
+      background-size: contain !important;
       background: #E5E5E5;
       position: relative;
       .state-upload {

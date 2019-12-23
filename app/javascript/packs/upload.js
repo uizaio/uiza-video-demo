@@ -1,3 +1,5 @@
+var publishStatusInterval = null;
+
 $(document ).ready(function() {
   if($('#dropZone').length) {
     dropZone.ondragover = dropZone.ondragenter = function(evt) {
@@ -79,13 +81,14 @@ $(document ).ready(function() {
     ajax.onreadystatechange = function() {
       if (this.readyState == 4) {
         if(this.status == 200) {
-          videoUploadSuccess(this.response);
+          videoPublishToCdnSuccess (this.response)
+          // videoUploadSuccess(this.response);
         }else {
           videoUploadFail(this.response);
         }
 
       }     
-    }; 
+    };
     ajax.send(formdata); 
 
   }
@@ -108,26 +111,55 @@ $(document ).ready(function() {
     console.log(e)
   }
   function videoUploadSuccess (res) {
-    let resObj = JSON.parse(res);
+    console.log(res);
     $('#upload-video-block').css("display", "none");
     $('#edit-upload').css("display", "block");
     $('.upload-video-progress').css("display", "none")
     $('.upload-video-fail').css("display", "none");
     $('.upload-video-success').css("display", "block");
-    let videoName = resObj.data.upload.name;
-    let videoUrl = window.location.origin + resObj.data.upload.view_url;
-    let embbed_str = resObj.data.upload.embbed;
+    let videoName = res.data.entity.name;
+    let thumbnail = res.data.entity.thumbnail;
+    let videoUrl = window.location.origin + res.data.entity.view_url;
+    let embbed_str = res.data.entity.embbed;
 
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
 
-    $('.thumbnail-top').css('background-image', 'url(https://ung-dung.com/images/upanh_online/upanh.png)');
+    $('.thumbnail-top').css('background-image', 'url(' + thumbnail + ')');
     $('.thumbnail-top').css('cursor', 'pointer');
     $('.thumbnail-top').attr("onclick", 'window.location="' + videoUrl + '";');
 
     $('.copi-link').val(videoUrl);
     $('.get-embed').val(embbed_str);
   }
+
+  function videoPublishToCdnSuccess (res) {
+    let resObj = JSON.parse(res);
+    $('.thumbnail-top').css('background-image', 'url(' + window.location.origin + '/img/image/img_video_placeholder.jpg)');
+    publishStatusInterval = setInterval(function()
+    {
+      $.ajax({
+        type: "get",
+        url: "/api/v1/videos/" + resObj.data.video.uiza_id + "/publish_status",
+        success:function(response)
+        {
+          console.log(response.data.publish.status);
+          if (response.data.publish.status == 'success') {
+            clearInterval(publishStatusInterval);
+            $.ajax({
+              type: "get",
+              url: "/api/v1/videos/" + resObj.data.video.uiza_id + "/entity",
+              success:function(response)
+              {
+                videoUploadSuccess(response);
+              }
+            });
+          }
+        }
+      });
+    }, 3000);
+  }
+
   function videoUploadFail(res) {
     $('#upload-video-block').css("dsplay", "none");
     $('#edit-upload').css("display", "block");

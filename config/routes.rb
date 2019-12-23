@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :videos, only: [:create]
+      resources :videos, only: [:create] do
+        get '/:uiza_id/entity', to: 'videos#entity', on: :collection
+        get '/:uiza_id/publish_status', to: 'videos#publish_status', on: :collection
+      end
     end
   end
 end

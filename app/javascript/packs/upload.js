@@ -1,3 +1,5 @@
+var publishStatusInterval = null;
+
 $(document ).ready(function() {
   if($('#dropZone').length) {
     dropZone.ondragover = dropZone.ondragenter = function(evt) {
@@ -19,7 +21,7 @@ $(document ).ready(function() {
   })
   function hidenModal(selectorElement, targetModal){
     $(selectorElement).click(function(){
-      window.location.href = "/upload";
+      window.location.href = "/videos";
     })
     
   }
@@ -46,13 +48,25 @@ $(document ).ready(function() {
   }
 
   $(".copi-link").click(function() {
-    copyToClipboard('Copy click');
-    console.log('Copy click');
+    copyToClipboard($(this).val());
+    console.log($(this).val());
+
+    // $(this).text('Copied').css('background', 'green');
+    // var interval = 2000;
+    // setTimeout(function() {
+    //   $(this).text('Copy link').css('background', '#DC3545');
+    // }, interval);
   });
 
   $(".get-embed").click(function() {
-    copyToClipboard('Get embed');
-    console.log('Get embed');
+    copyToClipboard($(this).val());
+    console.log($(this).val());
+
+    // $(this).text('Copied').css('background', 'green');
+    // var interval = 2000;
+    // setTimeout(function() {
+    //   $(this).text('Get embbed').css('background', 'white');
+    // }, interval);
   });
 
   function upload_files_with_progress(fileData) {
@@ -63,17 +77,18 @@ $(document ).ready(function() {
     ajax.upload.addEventListener("progress", progressHandler);
     ajax.addEventListener("error", errorHandler);
     ajax.addEventListener("abort", abortHandler);
-    ajax.open("POST", "api/v1/upload");
+    ajax.open("POST", "api/v1/videos");
     ajax.onreadystatechange = function() {
       if (this.readyState == 4) {
         if(this.status == 200) {
-          videoUploadSuccess(this.response);
+          videoPublishToCdnSuccess (this.response)
+          // videoUploadSuccess(this.response);
         }else {
           videoUploadFail(this.response);
         }
 
       }     
-    }; 
+    };
     ajax.send(formdata); 
 
   }
@@ -96,25 +111,55 @@ $(document ).ready(function() {
     console.log(e)
   }
   function videoUploadSuccess (res) {
-    let resObj = JSON.parse(res);
+    console.log(res);
     $('#upload-video-block').css("display", "none");
     $('#edit-upload').css("display", "block");
     $('.upload-video-progress').css("display", "none")
     $('.upload-video-fail').css("display", "none");
     $('.upload-video-success').css("display", "block");
-    let videoName = resObj.data.upload.name;
-    let videoCode = resObj.data.upload.code;
-    let videoUrl = "/upload/" + videoCode;
+    let videoName = res.data.entity.name;
+    let thumbnail = res.data.entity.thumbnail;
+    let videoUrl = window.location.origin + res.data.entity.view_url;
+    let embbed_str = res.data.entity.embbed;
+
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
 
-    $('.thumbnail-top').css('background-image', 'url(https://ung-dung.com/images/upanh_online/upanh.png)');
+    $('.thumbnail-top').css('background-image', 'url(' + thumbnail + ')');
     $('.thumbnail-top').css('cursor', 'pointer');
     $('.thumbnail-top').attr("onclick", 'window.location="' + videoUrl + '";');
 
-    $('.copi-link').val(window.location.origin + videoUrl);
-    $('.get-embed').val(window.location.origin + videoUrl);
+    $('.copi-link').val(videoUrl);
+    $('.get-embed').val(embbed_str);
   }
+
+  function videoPublishToCdnSuccess (res) {
+    let resObj = JSON.parse(res);
+    $('.thumbnail-top').css('background-image', 'url(' + window.location.origin + '/img/image/img_video_placeholder.jpg)');
+    publishStatusInterval = setInterval(function()
+    {
+      $.ajax({
+        type: "get",
+        url: "/api/v1/videos/" + resObj.data.video.uiza_id + "/publish_status",
+        success:function(response)
+        {
+          console.log(response.data.publish.status);
+          if (response.data.publish.status == 'success') {
+            clearInterval(publishStatusInterval);
+            $.ajax({
+              type: "get",
+              url: "/api/v1/videos/" + resObj.data.video.uiza_id + "/entity",
+              success:function(response)
+              {
+                videoUploadSuccess(response);
+              }
+            });
+          }
+        }
+      });
+    }, 3000);
+  }
+
   function videoUploadFail(res) {
     $('#upload-video-block').css("dsplay", "none");
     $('#edit-upload').css("display", "block");

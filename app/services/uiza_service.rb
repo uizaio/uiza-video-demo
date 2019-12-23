@@ -5,7 +5,7 @@ class UizaService
     Uiza.authorization = authorization_key
   end
 
-  def object(uiza_id)
+  def entity(uiza_id)
     begin
       entity = Uiza::Entity.retrieve uiza_id
     rescue Uiza::Error::UizaError => e
@@ -53,6 +53,18 @@ class UizaService
   def publish(uiza_id)
     begin
       response = Uiza::Entity.publish uiza_id
+    rescue Uiza::Error::UizaError => e
+      puts "description_link: #{e.description_link}"
+      puts "code: #{e.code}"
+      puts "message: #{e.message}"
+    rescue StandardError => e
+      puts "message: #{e.message}"
+    end
+  end
+
+  def publish_status(uiza_id)
+    begin
+      response = Uiza::Entity.get_status_publish uiza_id
     rescue Uiza::Error::UizaError => e
       puts "description_link: #{e.description_link}"
       puts "code: #{e.code}"

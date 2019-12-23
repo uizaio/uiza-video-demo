@@ -1,5 +1,5 @@
 .tab#uiza-tab
-  .create-live{:onclick => "location.href='/live';"}
-    %span Create live event          
-  .video-sharing{:onclick => "location.href='/upload';"}
-    %span.active Video sharing
+  .create-live{:onclick => "location.href='/lives';"}
+    %span{:class => "#{is_lives_page? ? 'active' : ''}"} Create live event          
+  .video-sharing{:onclick => "location.href='/videos';"}
+    %span{:class => "#{is_videos_page? ? 'active' : ''}"} Video sharing

@@ -19,9 +19,7 @@ $(document ).ready(function() {
   })
   function hidenModal(selectorElement, targetModal){
     $(selectorElement).click(function(){
-      // $(targetModal).modal('hide');
       window.location.href = "/upload";
-
     })
     
   }
@@ -37,15 +35,23 @@ $(document ).ready(function() {
     let file = $(this).prop('files');
     upload_files_with_progress(file[0]);
     $('#upload-fail-modal').modal('hide');
-
-    // console.log(file);
    });
 
-  $('.copi-link').click(function() {
+  function copyToClipboard(text) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(text).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
+
+  $(".copi-link").click(function() {
+    copyToClipboard('Copy click');
     console.log('Copy click');
   });
 
-  $('.get-embed').click(function() {
+  $(".get-embed").click(function() {
+    copyToClipboard('Get embed');
     console.log('Get embed');
   });
 
@@ -62,8 +68,6 @@ $(document ).ready(function() {
       if (this.readyState == 4) {
         if(this.status == 200) {
           videoUploadSuccess(this.response);
-          // videoUploadFail(this.response);
-
         }else {
           videoUploadFail(this.response);
         }
@@ -99,11 +103,17 @@ $(document ).ready(function() {
     $('.upload-video-fail').css("display", "none");
     $('.upload-video-success').css("display", "block");
     let videoName = resObj.data.upload.name;
+    let videoCode = resObj.data.upload.code;
+    let videoUrl = "/upload/" + videoCode;
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
 
     $('.thumbnail-top').css('background-image', 'url(https://ung-dung.com/images/upanh_online/upanh.png)');
+    $('.thumbnail-top').css('cursor', 'pointer');
+    $('.thumbnail-top').attr("onclick", 'window.location="' + videoUrl + '";');
 
+    $('.copi-link').val(window.location.origin + videoUrl);
+    $('.get-embed').val(window.location.origin + videoUrl);
   }
   function videoUploadFail(res) {
     $('#upload-video-block').css("dsplay", "none");

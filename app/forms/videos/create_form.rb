@@ -1,4 +1,4 @@
-class Upload::CreateForm
+class Videos::CreateForm
   include ActiveModel::Model
   attr_accessor :name, :data
 
@@ -11,7 +11,7 @@ class Upload::CreateForm
 
   def create
     if valid?
-      upload_service = UploadService.new()
+      upload_service = VideosService.new()
       upload_service.create(name, data)
     else
       [false, errors.messages, 400]

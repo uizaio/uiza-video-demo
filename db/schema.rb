@@ -27,17 +27,18 @@ ActiveRecord::Schema.define(version: 2019_12_19_015058) do
     t.index ["uiza_id"], name: "index_lives_on_uiza_id"
   end
 
-  create_table "uploads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: ""
     t.string "code", limit: 100, default: ""
-    t.string "file_local_path", default: ""
+    t.string "view_url", default: ""
     t.string "uiza_id", limit: 100, default: ""
     t.string "thumbnail", default: ""
+    t.text "embbed"
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "index_uploads_on_code"
-    t.index ["uiza_id"], name: "index_uploads_on_uiza_id"
+    t.index ["code"], name: "index_videos_on_code"
+    t.index ["uiza_id"], name: "index_videos_on_uiza_id"
   end
 
 end

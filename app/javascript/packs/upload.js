@@ -19,7 +19,7 @@ $(document ).ready(function() {
   })
   function hidenModal(selectorElement, targetModal){
     $(selectorElement).click(function(){
-      window.location.href = "/upload";
+      window.location.href = "/videos";
     })
     
   }
@@ -46,13 +46,25 @@ $(document ).ready(function() {
   }
 
   $(".copi-link").click(function() {
-    copyToClipboard('Copy click');
-    console.log('Copy click');
+    copyToClipboard($(this).val());
+    console.log($(this).val());
+
+    // $(this).text('Copied').css('background', 'green');
+    // var interval = 2000;
+    // setTimeout(function() {
+    //   $(this).text('Copy link').css('background', '#DC3545');
+    // }, interval);
   });
 
   $(".get-embed").click(function() {
-    copyToClipboard('Get embed');
-    console.log('Get embed');
+    copyToClipboard($(this).val());
+    console.log($(this).val());
+
+    // $(this).text('Copied').css('background', 'green');
+    // var interval = 2000;
+    // setTimeout(function() {
+    //   $(this).text('Get embbed').css('background', 'white');
+    // }, interval);
   });
 
   function upload_files_with_progress(fileData) {
@@ -63,7 +75,7 @@ $(document ).ready(function() {
     ajax.upload.addEventListener("progress", progressHandler);
     ajax.addEventListener("error", errorHandler);
     ajax.addEventListener("abort", abortHandler);
-    ajax.open("POST", "api/v1/upload");
+    ajax.open("POST", "api/v1/videos");
     ajax.onreadystatechange = function() {
       if (this.readyState == 4) {
         if(this.status == 200) {
@@ -103,8 +115,9 @@ $(document ).ready(function() {
     $('.upload-video-fail').css("display", "none");
     $('.upload-video-success').css("display", "block");
     let videoName = resObj.data.upload.name;
-    let videoCode = resObj.data.upload.code;
-    let videoUrl = "/upload/" + videoCode;
+    let videoUrl = window.location.origin + resObj.data.upload.view_url;
+    let embbed_str = resObj.data.upload.embbed;
+
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
 
@@ -112,8 +125,8 @@ $(document ).ready(function() {
     $('.thumbnail-top').css('cursor', 'pointer');
     $('.thumbnail-top').attr("onclick", 'window.location="' + videoUrl + '";');
 
-    $('.copi-link').val(window.location.origin + videoUrl);
-    $('.get-embed').val(window.location.origin + videoUrl);
+    $('.copi-link').val(videoUrl);
+    $('.get-embed').val(embbed_str);
   }
   function videoUploadFail(res) {
     $('#upload-video-block').css("dsplay", "none");

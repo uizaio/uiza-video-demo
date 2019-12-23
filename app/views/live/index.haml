@@ -3,3 +3,40 @@
     .col
       #uiza-content
         = render 'layouts/toggleable_tabs'
+        #live-event-block
+          .big-title
+            Create Event For Your Live Streaming
+          .live-form
+            .name
+              .label
+                Name
+                %span *
+              %input
+            .description-text
+              .label
+                Description
+              .text
+                %span Maximum live resolution: 720 px
+                %br
+                %span Live event duration: 30 mins/session/day
+            %textarea.description-input
+          #create-live-btn
+            .label Create live
+          .sign-up-now
+            %a{:href => "#{ENV['UIZA_SIGNUP_URL']}"} 
+              %span Sign Up now
+            %span for better experience and start building your awesome live stream appplication!
+          .benefit
+            .benefit-child
+              %img.benefit-child-mark-icon{:alt => "Smiley face",:src => "/img/icon/mark.png"}
+              %span Exclusive 2,000 free streamed minutes
+            .benefit-child
+              %img.benefit-child-mark-icon{:alt => "Smiley face",:src => "/img/icon/mark.png"}
+              %span Full roadmap access and contribution
+            .benefit-child
+              %img.benefit-child-mark-icon{:alt => "Smiley face",:src => "/img/icon/mark.png"}
+              %span Early access to new features and services
+        -# = render 'live/edit'
+
+
+          

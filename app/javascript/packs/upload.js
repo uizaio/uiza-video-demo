@@ -110,7 +110,6 @@ $(document ).ready(function() {
     let videoName = resObj.data.upload.name;
     let videoCode = resObj.data.upload.code;
     let videoUrl = "/upload/" + videoCode;
-
     let videoNameText = document.querySelector("#video-name");
     videoNameText.textContent = videoName;
 
@@ -129,4 +128,12 @@ $(document ).ready(function() {
     $('.upload-video-success').css("display", "none");
     $("#upload-fail-modal").modal();
   }
+  function redirectPageView() {
+    // let value = $('#upload-video-success-com').attr('value');
+    // document.getElementById("upload-video-success-com").innerHTML = "zaauauuaua"
+    // console.log(value);
+    var s = document.getElementById('upload-video-success-com');
+    s.value = "new value";
+  }  
+  redirectPageView();
 });

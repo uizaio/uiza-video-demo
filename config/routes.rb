@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :videos, only: [:index] do
     get '/:code', to: 'videos#show', on: :collection
   end
-  resources :lives, only: [:index]
+  resources :lives, only: [:index, :create]
 
   namespace :api do
     namespace :v1 do

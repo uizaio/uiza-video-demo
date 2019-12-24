@@ -173,7 +173,9 @@ $(document ).ready(function() {
     // document.getElementById("upload-video-success-com").innerHTML = "zaauauuaua"
     // console.log(value);
     var s = document.getElementById('upload-video-success-com');
-    s.value = "new value";
+    if (s != null) {
+      s.value = "new value";
+    }
   }  
   redirectPageView();
 });

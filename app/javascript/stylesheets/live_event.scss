@@ -44,6 +44,7 @@
         font-family: $ibm-font;
         font-size: 14px;
         color: #77909D;
+        padding-left: 8px;
       }
     }
     .description-text{
@@ -82,7 +83,7 @@
       color: #77909D;
       resize: none;
       float: left;
-      
+      padding-left: 8px;
     }
   }
   #create-live-btn {
@@ -356,4 +357,112 @@
     }
 
   }
+}
+#process-modal-live {
+  .modal-dialog {
+    .modal-content {
+      top: 200px;
+      left: -120px;
+
+      width: 680px;
+      height: 408px;
+      background: #FFFFFF;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.271711);
+      border-radius: 4px;
+      .modal-header {
+        height: 50px;
+        background: #F4F5F6;
+        border-radius: 4px 4px 0px 0px;
+        display: flex;
+        justify-content: space-between;
+        .title {
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 18px;
+          color: #4A4952;
+        }
+        .close-icon-modal-live{
+          cursor: pointer;
+        }
+      }
+      .modal-body {
+        padding: 20px 64px;
+        .noitice {
+          margin-bottom: 27px;
+          .big-noitice {
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 18px;
+            color: #4A4952;
+            display: block;
+          }
+          .small-noitice {
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+            color: #B1BBC1;
+            display: block;
+
+          }
+        }
+        .icon-progress {
+          width: 100%;
+          height: 30px;
+          margin: auto;
+          .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 181px;
+          }
+        }
+        .progress {
+          background-color: #F3F2F2;
+          height: 9px;
+          position: relative;
+          width: 100%;
+          margin-top: 25px;
+          margin-bottom: 20px;
+          &-bar-load {
+            height: 100%;
+            position: relative;
+            background: linear-gradient(90deg, #DC3545 35.03%, #F57C7C 102%);
+            border-radius: 2px 0px 0px 2px;
+            // width: 10%;
+          }
+        }
+        .generate_key {
+          width: 100%;
+          height: 35px;
+          display: flex;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          .label {
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 15px;
+            color: #152935;  
+            margin-right: 18px;
+            margin-top: 9px;         
+          }
+          input {
+            width: 70%;
+            background: #FFFFFF;
+            border: 1px solid #DFE3E6;
+            box-sizing: border-box;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+
 }

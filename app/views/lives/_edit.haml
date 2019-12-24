@@ -16,12 +16,12 @@
     .info
       .stream-url
         .label StreamURL
-        %input
-        %img.icon-copy{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
+        %input.stream-url-input{:disabled => true}
+        %img.icon-copy#copy-stream-url{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
       .stream-key
         .label StreamKey
-        %input
-        %img.icon-copy{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
+        %input{:disabled => true}
+        %img.icon-copy#copy-stream-key{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
     .tutorial
       %span Input the StreamURL & StreamKey to Start your Live event. 
       %a{:href => "#"} Learn how to push signal
@@ -59,3 +59,4 @@
         });
       }
     );
+

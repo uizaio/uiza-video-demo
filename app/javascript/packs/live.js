@@ -50,5 +50,16 @@ $(document).ready(function() {
   $('#copy-stream-url').click(function(){
     copyToClipboard($('.stream-url-input').val());
   });
+  $('#copy-stream-key').click(function(){
+    copyToClipboard($('.stream-key-input').val());
+  });
+  $(".get-link-btn").click(function() {
+    let value = document.getElementById('get-link-btn').getAttribute('value');
+    copyToClipboard(value);
 
+  });
+  $(".get-embed-btn").click(function() {
+    let value = document.getElementById('get-embed-btn').getAttribute('value');
+    copyToClipboard(value);
+  });
 })

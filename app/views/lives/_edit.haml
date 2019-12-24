@@ -8,9 +8,9 @@
     .action
       .broadcasting
         %img.icon{:alt => "Smiley face",:src => "/img/icon/broad-icon.png"}
-      .get-link-btn
+      .get-link-btn#get-link-btn{value: 'Get_link'}
         .label Get link play
-      .get-embed-btn
+      .get-embed-btn#get-embed-btn{value: 'Get_embbed'}
         .label Get Embed
   .streaming-block
     .info
@@ -20,11 +20,11 @@
         %img.icon-copy#copy-stream-url{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
       .stream-key
         .label StreamKey
-        %input{:disabled => true}
+        %input.stream-key-input{:disabled => true}
         %img.icon-copy#copy-stream-key{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
     .tutorial
       %span Input the StreamURL & StreamKey to Start your Live event. 
-      %a{:href => "#"} Learn how to push signal
+      %a{:href => "https://help.uiza.io/en/articles/2998603-obs-guideline", :target => "_blank"} Learn how to push signal
     .count-down-time
       .label Countdown Timer
       %img.icon-support{:alt => "Smiley face",:src => "/img/icon/support-icon.png"}

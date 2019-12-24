@@ -136,6 +136,7 @@ $(document ).ready(function() {
   function videoPublishToCdnSuccess (res) {
     let resObj = JSON.parse(res);
     $('.thumbnail-top').css('background-image', 'url(' + window.location.origin + '/img/image/img_video_placeholder.jpg)');
+    $('.state-upload').css('display', 'block');
     publishStatusInterval = setInterval(function()
     {
       $.ajax({

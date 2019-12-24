@@ -419,7 +419,16 @@
           display: flex;
           .center {
             width: 30px;
-            margin-right: 9px;;
+            margin-right: 8px;;
+          }
+          span {
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 18px;
+            color: #5A6873;
+            
           }
         }
         .progress {

@@ -10,10 +10,10 @@ class VideosService
 
       # Upload to Uiza
       uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
-      entity = uiza_service.create(object_key, '', uploaded_url)
+      entity = uiza_service.video_create(object_key, '', uploaded_url)
 
       # Publish to CDN
-      uiza_service.publish(entity.id)
+      uiza_service.video_publish(entity.id)
 
       # Create upload document
       video = Video.create(name: name, status: 2, uiza_id: entity.id)

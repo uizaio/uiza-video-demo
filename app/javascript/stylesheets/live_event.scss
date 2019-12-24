@@ -441,8 +441,8 @@
           width: 100%;
           height: 35px;
           display: flex;
-          margin-top: 20px;
-          margin-bottom: 20px;
+          margin-top: 25px;
+          margin-bottom: 25px;
           .label {
             font-family: $ibm-font;
             font-style: normal;
@@ -459,6 +459,26 @@
             border: 1px solid #DFE3E6;
             box-sizing: border-box;
             border-radius: 4px;
+          }
+        }
+        .btn-start-stream {
+          display: none;
+          margin-top: 30px;
+          background: #DC3545;
+          border-radius: 4px;
+          width: 100px;
+          height: 30px;
+          margin: auto;
+          padding-top: 7px;
+          cursor: pointer;
+          .label {
+            font-family: $ibm-font;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+            text-align: center;
+            color: #FFFFFF;
           }
         }
       }

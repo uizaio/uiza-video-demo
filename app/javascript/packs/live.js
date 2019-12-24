@@ -1,3 +1,5 @@
+var liveDetailInterval = null;
+
 $(document).ready(function() {
   function copyToClipboard(text) {
     var $temp = $("<input>");
@@ -14,25 +16,28 @@ $(document).ready(function() {
       formData = new FormData();
       formData.append("name", liveName);
       formData.append("des", liveDes);
-      $('#process-modal-live').modal();
+      // $('#process-modal-live').modal();
       // $('#process-modal-live').modal({backdrop: 'static', keyboard: false});
-      // $.ajax({
-      //   url: '/api/v1/lives',
-      //   data: formData,
-      //   cache: false,
-      //   contentType: false,
-      //   processData: false,
-      //   method: 'POST',
-      //   success: function(response)
-      //   {
-      //     // console.log(response.data.live.code);
-      //     redirect_to_streaming_view(response.data.live.code);
-      //   },
-      //   error: function (error)
-      //   {
-      //     console.log(error);
-      //   }
-      // });
+      $.ajax({
+        url: '/api/v1/lives',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        success: function(response)
+        {
+          $('#process-modal-live').modal();
+          let uiza_id = response.data.live.uiza_id;
+          let code = response.data.live.code;
+          $('.btn-start-stream').val(window.location.origin + '/lives/' + code + '/detail');
+          getLiveInfo(uiza_id);
+        },
+        error: function (error)
+        {
+          console.log(error);
+        }
+      });
     }else {
       alert('Name and Description not empty');
     }
@@ -45,7 +50,6 @@ $(document).ready(function() {
 
     let currentURL = location.origin;
     let urlStreaming = currentURL + "/lives/" + code + "/detail";
-    // window.location.href = urlStreaming;
   }
   $('#copy-stream-url').click(function(){
     copyToClipboard($('.stream-url-input').val());
@@ -56,10 +60,46 @@ $(document).ready(function() {
   $(".get-link-btn").click(function() {
     let value = document.getElementById('get-link-btn').getAttribute('value');
     copyToClipboard(value);
-
   });
   $(".get-embed-btn").click(function() {
     let value = document.getElementById('get-embed-btn').getAttribute('value');
     copyToClipboard(value);
+  });
+  function liveGetInfoSuccess (res) {
+    console.log(res);
+    let streamKey = res.data.live.stream_key;
+    $('.ingest_key').val(streamUrl);
+    let streamUrl = res.data.live.stream_url;
+    $('.stream_url').val(streamUrl);
+    $('.btn-start-stream').css("display", "block");
+    $('.live-progress-text').text("Creating Resource ...100%");
+    let progressBarFill = document.querySelector("#progress-live > .progress-bar-load");
+    progressBarFill.style.width = "100%";
+  }
+
+  function getLiveInfo(uiza_id) {
+    liveDetailInterval = setInterval(function()
+    {
+      $.ajax({
+        type: "get",
+        url: "/api/v1/lives/" + uiza_id + "/entity",
+        success:function(response)
+        {
+          console.log(response.data.live.status);
+          if (response.data.live.status == 'ready') {
+            clearInterval(liveDetailInterval);
+            liveGetInfoSuccess(response);
+          }
+        }
+      });
+    }, 2000);
+  }
+
+  $('#process-modal-live').on('hidden.bs.modal', function () {
+    clearInterval(liveDetailInterval);
+  });
+
+  $('.btn-start-stream').click(function(){
+    window.location = $(this).val();
   });
 })

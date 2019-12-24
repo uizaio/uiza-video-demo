@@ -6,6 +6,6 @@ class Video < ApplicationRecord
   before_create :generate_code
 
   def generate_code
-    self.code = (Time.now.to_i.to_s + self.id.to_s)
+    self.code = ('vod_' + Time.now.to_i.to_s + self.id.to_s)
   end
 end

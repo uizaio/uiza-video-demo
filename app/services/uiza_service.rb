@@ -103,7 +103,6 @@ class UizaService
     end
 
     if res.status == 200
-      binding.pry
       return JSON.parse res.body
     else
       return nil
@@ -123,5 +122,9 @@ class UizaService
     else
       return nil
     end
+  end
+
+  def live_session()
+
   end
 end

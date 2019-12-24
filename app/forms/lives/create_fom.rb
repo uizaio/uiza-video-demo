@@ -11,7 +11,7 @@ class Lives::CreateForm
 
   def create
     if valid?
-      lives_service = VideosService.new()
+      lives_service = LivesService.new()
       lives_service.create(name, des)
     else
       [false, errors.messages, 400]

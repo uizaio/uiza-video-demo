@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     get '/:code', to: 'videos#show', on: :collection
   end
   resources :lives, only: [:index] do
-    get '/:code', to: 'lives#detail', on: :collection
+    get '/:code/detail', to: 'lives#detail', on: :collection
+    get '/:code', to: 'lives#show', on: :collection
   end
 
   namespace :api do
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
         get '/:uiza_id/publish_status', to: 'videos#publish_status', on: :collection
       end
 
-      resources :lives, only: [:create]
+      resources :lives, only: [:create] do
+        get '/:code/entity', to: 'lives#entity', on: :collection
+      end
     end
   end
 end

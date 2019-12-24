@@ -31,31 +31,35 @@
       .count-down
         %img.icon-lock{:alt => "Smiley face",:src => "/img/icon/lock-icon.png"}
         .text 02:15:30
-  .live-player
-    #player
-:javascript
-  // 3. This code creates an UIZA player, and return the player for the callback
-  UZ.Player.init(
-    '#player', // player element, exp: #element_id, .element_class
-    {
-      appId: 'YOUR_APP_ID',
-      playerId: 'YOUR_PLAYER_ID', // option
-      playerVersion: 4, // you are using the newest player, player version support API version
-      entityId: 'YOUR_ENTITY_ID',
-      channelName: 'YOUR_CHANNEL_NAME',
-      feedId: 'YOUR_FEED_ID',
-      userInfo: 'YOUR_END_USER_INFO', // option, suggest this is the user id (for analytics)
-      width: '100%', // player width, percentage or pixel, exp: '400px'
-      height: '100%', // player height, percentage or pixel, exp: '200px'
-    },
-    function(player) {
-      // 4. You can add logo at here
-      // 5. You can add event listeners at here
-      player.on('play', function() {
-        console.log('play');
-      });
-      player.on('pause', function() {
-        console.log('pause');
-      });
-    }
-  );
+    .live-player
+      #player
+
+
+
+
+  :javascript
+    // 3. This code creates an UIZA player, and return the player for the callback
+    UZ.Player.init(
+      '#player', // player element, exp: #element_id, .element_class
+      {
+        appId: 'YOUR_APP_ID',
+        playerId: 'YOUR_PLAYER_ID', // option
+        playerVersion: 4, // you are using the newest player, player version support API version
+        entityId: 'YOUR_ENTITY_ID',
+        channelName: 'YOUR_CHANNEL_NAME',
+        feedId: 'YOUR_FEED_ID',
+        userInfo: 'YOUR_END_USER_INFO', // option, suggest this is the user id (for analytics)
+        width: '100%', // player width, percentage or pixel, exp: '400px'
+        height: '460px', // player height, percentage or pixel, exp: '200px'
+      },
+      function(player) {
+        // 4. You can add logo at here
+        // 5. You can add event listeners at here
+        player.on('play', function() {
+          console.log('play');
+        });
+        player.on('pause', function() {
+          console.log('pause');
+        });
+      }
+    );

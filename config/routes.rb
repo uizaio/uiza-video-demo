@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       end
 
       resources :lives, only: [:create] do
-        get '/:code/entity', to: 'lives#entity', on: :collection
+        get '/:uiza_id/entity', to: 'lives#entity', on: :collection
       end
     end
   end

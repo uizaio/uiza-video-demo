@@ -62,6 +62,9 @@ $(document).ready(function() {
     let streamUrl = res.data.live.stream_url;
     $('.stream_url').val(streamUrl);
     $('.btn-start-stream').css("display", "block");
+    $('.live-progress-text').text("Creating Resource ...100%");
+    let progressBarFill = document.querySelector("#progress-live > .progress-bar-load");
+    progressBarFill.style.width = "100%";
   }
 
   function getLiveInfo(uiza_id) {

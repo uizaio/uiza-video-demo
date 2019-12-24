@@ -37,7 +37,6 @@
               %img.benefit-child-mark-icon{:alt => "Smiley face",:src => "/img/icon/mark.png"}
               %span Early access to new features and services
         -# = render 'lives/edit'
-
 #process-modal-live.modal.fade
   .modal-dialog
     .modal-content
@@ -55,7 +54,7 @@
           .progress-bar-load
         .generate_key.ingest_key
           .label ingest_key
-          %input
+          %input.ingest_key{:disabled => true}
         .generate_key.stream_url
           .label stream_url
-          %input
+          %input.stream_url{:disabled => true}

@@ -1,3 +1,5 @@
+var liveDetailInterval = null;
+
 $(document).ready(function() {
   function copyToClipboard(text) {
     var $temp = $("<input>");
@@ -14,25 +16,26 @@ $(document).ready(function() {
       formData = new FormData();
       formData.append("name", liveName);
       formData.append("des", liveDes);
-      $('#process-modal-live').modal();
+      // $('#process-modal-live').modal();
       // $('#process-modal-live').modal({backdrop: 'static', keyboard: false});
-      // $.ajax({
-      //   url: '/api/v1/lives',
-      //   data: formData,
-      //   cache: false,
-      //   contentType: false,
-      //   processData: false,
-      //   method: 'POST',
-      //   success: function(response)
-      //   {
-      //     // console.log(response.data.live.code);
-      //     redirect_to_streaming_view(response.data.live.code);
-      //   },
-      //   error: function (error)
-      //   {
-      //     console.log(error);
-      //   }
-      // });
+      $.ajax({
+        url: '/api/v1/lives',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        success: function(response)
+        {
+          $('#process-modal-live').modal();
+          let uiza_id = response.data.live.uiza_id;
+          getLiveInfo(uiza_id);
+        },
+        error: function (error)
+        {
+          console.log(error);
+        }
+      });
     }else {
       alert('Name and Description not empty');
     }
@@ -51,4 +54,33 @@ $(document).ready(function() {
     copyToClipboard($('.stream-url-input').val());
   });
 
+  function liveGetInfoSuccess (res) {
+    console.log(res);
+    let streamKey = res.data.live.stream_key;
+    $('.ingest_key').val(streamUrl);
+    let streamUrl = res.data.live.stream_url;
+    $('.stream_url').val(streamUrl);
+  }
+
+  function getLiveInfo(uiza_id) {
+    liveDetailInterval = setInterval(function()
+    {
+      $.ajax({
+        type: "get",
+        url: "/api/v1/lives/" + uiza_id + "/entity",
+        success:function(response)
+        {
+          console.log(response.data.live.status);
+          if (response.data.live.status == 'ready') {
+            clearInterval(liveDetailInterval);
+            liveGetInfoSuccess(response);
+          }
+        }
+      });
+    }, 2000);
+  }
+
+  $('#process-modal-live').on('hidden.bs.modal', function () {
+    clearInterval(liveDetailInterval);
+  });
 })

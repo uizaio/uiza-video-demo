@@ -3,7 +3,7 @@ class Api::V1::Lives::EntityViewObject
 
   def initialize(data, live)
     @uiza_id = data['id']
-    @live_id = data['live_id']
+    @live_id = live.id
     @name = data['name']
     @description = data['description']
     @stream_url = data['ingest'] ? data['ingest']['url'] : ''

@@ -1,9 +1,16 @@
 $(document).ready(function() {
+  function copyToClipboard(text) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(text).select();
+    document.execCommand("copy");
+    $temp.remove();
+  }
 
   $('#create-live-btn').click(function(){
     let liveName = $(".live-name").val();
     let liveDes = $(".live-des").val();
-    if(liveName){
+    if(liveName && liveDes){
       formData = new FormData();
       formData.append("name", liveName);
       formData.append("des", liveDes);
@@ -25,13 +32,18 @@ $(document).ready(function() {
         }
       });
     }else {
-      alert('Không được để trống name');
+      alert('Name and Description not empty');
     }
   });
   function redirect_to_streaming_view(code){
-    let currentURL = window.location.href;
-    let urlStreaming = currentURL + "/" + code;
+    let location = window.location;
+
+    let currentURL = location.origin;
+    let urlStreaming = currentURL + "/lives/" + code;
     window.location.href = urlStreaming;
   }
+  $('#copy-stream-url').click(function(){
+    copyToClipboard($('.stream-url-input').val());
+  });
 
 })

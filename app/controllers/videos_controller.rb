@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  layout "show_player", only: [:show]
   def index
   end
   def show

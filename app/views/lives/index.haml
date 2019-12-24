@@ -38,5 +38,24 @@
               %span Early access to new features and services
         -# = render 'lives/edit'
 
-
-          
+#process-modal-live.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        .title
+          Proccesing event
+        %img.close-icon-modal-live{:alt => "uiza-upload",:src => "/img/icon/close-icon.png"}
+      .modal-body
+        .noitice
+          %span.big-noitice Proccessing
+          %span.small-noitice Please be patient while we create your resource anf start your live streaming 
+        .icon-progress
+          %img.center{:alt => "Smiley face",:src => "/img/icon/progress-icon.png"}
+        .progress#progress-live
+          .progress-bar-load
+        .generate_key.ingest_key
+          .label ingest_key
+          %input
+        .generate_key.stream_url
+          .label stream_url
+          %input

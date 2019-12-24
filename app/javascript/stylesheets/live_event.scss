@@ -414,12 +414,12 @@
         .icon-progress {
           width: 100%;
           height: 30px;
-          margin: auto;
+          align-items: center;
+          justify-content: center;
+          display: flex;
           .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 181px;
+            width: 30px;
+            margin-right: 9px;;
           }
         }
         .progress {

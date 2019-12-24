@@ -95,7 +95,7 @@ class UizaService
     end
   end
 
-  def live_object(uiza_id)
+  def live_entity(uiza_id)
     res = Faraday.get do |req|
       req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
       req.headers['Authorization'] = authorization_key

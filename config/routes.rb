@@ -16,7 +16,9 @@ Rails.application.routes.draw do
         get '/:uiza_id/publish_status', to: 'videos#publish_status', on: :collection
       end
 
-      resources :lives, only: [:create]
+      resources :lives, only: [:create] do
+        get '/:uiza_id/entity', to: 'lives#entity', on: :collection
+      end
     end
   end
 end

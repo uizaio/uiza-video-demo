@@ -29,6 +29,8 @@ $(document).ready(function() {
         {
           $('#process-modal-live').modal();
           let uiza_id = response.data.live.uiza_id;
+          let code = response.data.live.code;
+          $('.btn-start-stream').val(window.location.origin + '/lives/' + code + '/detail');
           getLiveInfo(uiza_id);
         },
         error: function (error)
@@ -48,7 +50,6 @@ $(document).ready(function() {
 
     let currentURL = location.origin;
     let urlStreaming = currentURL + "/lives/" + code + "/detail";
-    // window.location.href = urlStreaming;
   }
   $('#copy-stream-url').click(function(){
     copyToClipboard($('.stream-url-input').val());
@@ -60,6 +61,7 @@ $(document).ready(function() {
     $('.ingest_key').val(streamUrl);
     let streamUrl = res.data.live.stream_url;
     $('.stream_url').val(streamUrl);
+    $('.btn-start-stream').css("display", "block");
   }
 
   function getLiveInfo(uiza_id) {
@@ -82,5 +84,9 @@ $(document).ready(function() {
 
   $('#process-modal-live').on('hidden.bs.modal', function () {
     clearInterval(liveDetailInterval);
+  });
+
+  $('.btn-start-stream').click(function(){
+    window.location = $(this).val();
   });
 })

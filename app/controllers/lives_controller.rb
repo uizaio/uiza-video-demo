@@ -1,5 +1,5 @@
 class LivesController < ApplicationController
-  layout "show_player", only: [:show]
+  layout "show_player", only: [:show, :detail]
   def index
   end
 

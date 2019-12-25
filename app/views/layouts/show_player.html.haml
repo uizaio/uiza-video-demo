@@ -3,10 +3,11 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title UIZA
+    %link{:href => "/stylesheets/uiza.css", :rel => "stylesheet"}/
     %link{:href => "https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap", :rel => "stylesheet"}/
+    %script{:src => "/javascript/uiza.min.js"}
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .wrapper{:style => "margin-top: 100px;text-align: center;"}

@@ -16,11 +16,11 @@
     .info
       .stream-url
         .label StreamURL
-        %input.stream-url-input{:disabled => true}
+        %input.stream-url-input{:disabled => true, :value => @live.stream_url}
         %img.icon-copy#copy-stream-url{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
       .stream-key
         .label StreamKey
-        %input{:disabled => true}
+        %input{:disabled => true, :value => @live.stream_key}
         %img.icon-copy#copy-stream-key{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
     .tutorial
       %span Input the StreamURL & StreamKey to Start your Live event. 
@@ -44,7 +44,6 @@
         entityId: 'YOUR_ENTITY_ID',
         channelName: 'YOUR_CHANNEL_NAME',
         feedId: 'YOUR_FEED_ID',
-        userInfo: 'YOUR_END_USER_INFO', // option, suggest this is the user id (for analytics)
         width: '100%', // player width, percentage or pixel, exp: '400px'
         height: '460px', // player height, percentage or pixel, exp: '200px'
       },

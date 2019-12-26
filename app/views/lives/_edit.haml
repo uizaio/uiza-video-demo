@@ -21,11 +21,11 @@
     .info
       .stream-url
         .label StreamURL
-        %input.stream-url-input{:disabled => true, :value => "aasdasdasd"}
+        %input.stream-url-input{:disabled => true, :value => @live.stream_url}
         %img.icon-copy#copy-stream-url{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
       .stream-key
         .label StreamKey
-        %input.stream-key-input{:disabled => true, :value => "vvvv"}
+        %input.stream-key-input{:disabled => true, :value => @live.stream_key}
         %img.icon-copy#copy-stream-key{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
     .tutorial
       %span Input the StreamURL & StreamKey to Start your Live event. 
@@ -46,5 +46,5 @@
         sdk: '/javascript/hls.min-v0.12.4.js'
       },
     },
-    src: '/lives/HLS_LINK',
+    src: "#{@uiza_live_info['playback']['hls']}",
   });

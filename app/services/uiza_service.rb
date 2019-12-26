@@ -85,7 +85,7 @@ class UizaService
       req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities"
       req.headers['Authorization'] = authorization_key
       req.headers['Content-Type'] = 'application/json'
-      req.body = {name: name, description: des, region: region, dvr: false}.to_json
+      req.body = {name: name, description: des, region: region, dvr: true}.to_json
     end
 
     if res.status == 200

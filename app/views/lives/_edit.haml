@@ -10,15 +10,22 @@
         .label Get link play
       .get-embed-btn#get-embed-btn{value: 'Get_embbed'}
         .label Get Embed
+    .action-offline
+      .broadcasting
+        %img.icon{:alt => "Smiley face",:src => "/img/icon/broad-offline.png"}
+      .get-link-btn
+        .label Get link play
+      .get-embed-btn
+        .label Get Embed
   .streaming-block
     .info
       .stream-url
         .label StreamURL
-        %input.stream-url-input{:disabled => true}
+        %input.stream-url-input{:disabled => true, :value => "aasdasdasd"}
         %img.icon-copy#copy-stream-url{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
       .stream-key
         .label StreamKey
-        %input.stream-key-input{:disabled => true}
+        %input.stream-key-input{:disabled => true, :value => "vvvv"}
         %img.icon-copy#copy-stream-key{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
     .tutorial
       %span Input the StreamURL & StreamKey to Start your Live event. 

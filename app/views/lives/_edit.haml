@@ -1,5 +1,3 @@
-%script{:src => "https://sdk.uiza.io/uizaplayer.js"}
-/ 2. The video player will prepend the player into this <div> tag. You should create css style for this tag
 #edit-live-event
   .header
     .title
@@ -8,9 +6,9 @@
     .action
       .broadcasting
         %img.icon{:alt => "Smiley face",:src => "/img/icon/broad-icon.png"}
-      .get-link-btn
+      .get-link-btn#get-link-btn{value: 'Get_link'}
         .label Get link play
-      .get-embed-btn
+      .get-embed-btn#get-embed-btn{value: 'Get_embbed'}
         .label Get Embed
   .streaming-block
     .info
@@ -20,11 +18,11 @@
         %img.icon-copy#copy-stream-url{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
       .stream-key
         .label StreamKey
-        %input{:disabled => true, :value => @live.stream_key}
+        %input.stream-key-input{:disabled => true, :value => @live.stream_key}
         %img.icon-copy#copy-stream-key{:alt => "Smiley face",:src => "/img/icon/copy-input.png"}
     .tutorial
       %span Input the StreamURL & StreamKey to Start your Live event. 
-      %a{:href => "#"} Learn how to push signal
+      %a{:href => "https://help.uiza.io/en/articles/2998603-obs-guideline", :target => "_blank"} Learn how to push signal
     .count-down-time
       .label Countdown Timer
       %img.icon-support{:alt => "Smiley face",:src => "/img/icon/support-icon.png"}
@@ -32,30 +30,14 @@
         %img.icon-lock{:alt => "Smiley face",:src => "/img/icon/lock-icon.png"}
         .text 02:15:30
     .live-player
-      #player
-  :javascript
-    // 3. This code creates an UIZA player, and return the player for the callback
-    UZ.Player.init(
-      '#player', // player element, exp: #element_id, .element_class
-      {
-        appId: 'YOUR_APP_ID',
-        playerId: 'YOUR_PLAYER_ID', // option
-        playerVersion: 4, // you are using the newest player, player version support API version
-        entityId: 'YOUR_ENTITY_ID',
-        channelName: 'YOUR_CHANNEL_NAME',
-        feedId: 'YOUR_FEED_ID',
-        width: '100%', // player width, percentage or pixel, exp: '400px'
-        height: '460px', // player height, percentage or pixel, exp: '200px'
+      %video#player{:autoplay => "", :crossorigin => "", "data-uiza-provider" => "hlsjs", :muted => "muted", :playsinline => ""}
+:javascript
+  var player = new Uiza(document.getElementById('player'), {
+    iconUrl: '/img/icon/uiza.svg',
+    urls: {
+      hlsjs: {
+        sdk: '/javascript/hls.min-v0.12.4.js'
       },
-      function(player) {
-        // 4. You can add logo at here
-        // 5. You can add event listeners at here
-        player.on('play', function() {
-          console.log('play');
-        });
-        player.on('pause', function() {
-          console.log('pause');
-        });
-      }
-    );
-
+    },
+    src: '/lives/HLS_LINK',
+  });

@@ -1,4 +1,4 @@
-var liveDetailInterval = null;
+var liveGetInfoInterval = null;
 
 $(document).ready(function() {
   function copyToClipboard(text) {
@@ -78,7 +78,7 @@ $(document).ready(function() {
   }
 
   function getLiveInfo(uiza_id) {
-    liveDetailInterval = setInterval(function()
+    liveGetInfoInterval = setInterval(function()
     {
       $.ajax({
         type: "get",
@@ -87,7 +87,7 @@ $(document).ready(function() {
         {
           console.log(response.data.live.status);
           if (response.data.live.status == 'ready') {
-            clearInterval(liveDetailInterval);
+            clearInterval(liveGetInfoInterval);
             liveGetInfoSuccess(response);
           }
         }
@@ -96,7 +96,7 @@ $(document).ready(function() {
   }
 
   $('#process-modal-live').on('hidden.bs.modal', function () {
-    clearInterval(liveDetailInterval);
+    clearInterval(liveGetInfoInterval);
   });
 
   $('.btn-start-stream').click(function(){

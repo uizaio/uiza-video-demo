@@ -91,49 +91,68 @@ class UizaService
     if res.status == 200
       return JSON.parse res.body
     else
+      puts "ERROR: Response fail. Status: #{res.status}. Message: #{res.body}"
       return nil
     end
   end
 
   def live_entity(uiza_id)
-    res = Faraday.get do |req|
-      req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
-      req.headers['Authorization'] = authorization_key
-      req.headers['Content-Type'] = 'application/json'
-    end
-    if res.status == 200
-      return JSON.parse res.body
-    else
+    begin
+      res = Faraday.get do |req|
+        req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
+        req.headers['Authorization'] = authorization_key
+        req.headers['Content-Type'] = 'application/json'
+      end
+      if res.status == 200
+        return JSON.parse res.body
+      else
+        puts "Request fail. Status: #{res.status}. Message: #{res.body}"
+        return nil
+      end
+    rescue Exception => e
+      puts "ERROR: Request error. Message: #{e.message}"
       return nil
     end
   end
 
   def live_update(uiza_id, name, des)
-    res = Faraday.put do |req|
-      req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
-      req.headers['Authorization'] = authorization_key
-      req.headers['Content-Type'] = 'application/json'
-      req.body = {name: name, description: des}.to_json
-    end
+    begin
+      res = Faraday.put do |req|
+        req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
+        req.headers['Authorization'] = authorization_key
+        req.headers['Content-Type'] = 'application/json'
+        req.body = {name: name, description: des}.to_json
+      end
 
-    if res.status == 200
-      return JSON.parse res.body
-    else
+      if res.status == 200
+        return JSON.parse res.body
+      else
+        puts "ERROR: Response fail. Status: #{res.status}. Message: #{res.body}"
+        return nil
+      end
+    rescue Exception => e
+      puts "ERROR: Request error. Message: #{e.message}"
       return nil
     end
   end
 
   def live_sessions()
-    res = Faraday.put do |req|
-      req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
-      req.headers['Authorization'] = authorization_key
-      req.headers['Content-Type'] = 'application/json'
-      req.body = {name: name, description: des}.to_json
-    end
+    begin
+      res = Faraday.put do |req|
+        req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
+        req.headers['Authorization'] = authorization_key
+        req.headers['Content-Type'] = 'application/json'
+        req.body = {name: name, description: des}.to_json
+      end
 
-    if res.status == 200
-      return JSON.parse res.body
-    else
+      if res.status == 200
+        return JSON.parse res.body
+      else
+        puts "ERROR: Response fail. Status: #{res.status}. Message: #{res.body}"
+        return nil
+      end
+    rescue Exception => e
+      puts "ERROR: Request error. Message: #{e.message}"
       return nil
     end
   end

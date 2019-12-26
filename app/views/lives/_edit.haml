@@ -6,7 +6,7 @@
     .action
       .broadcasting
         %img.icon{:alt => "Smiley face",:src => "/img/icon/broad-icon.png"}
-      .get-link-btn#get-link-btn{value: 'Get_link'}
+      .get-link-btn#get-link-btn{value: "#{request.base_url}/lives/#{params[:code]}"}
         .label Get link play
       .get-embed-btn#get-embed-btn{value: 'Get_embbed'}
         .label Get Embed

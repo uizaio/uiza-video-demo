@@ -4,6 +4,8 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title UIZA
     %link{:href => "https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap", :rel => "stylesheet"}/
+    %link{:href => "/stylesheets/uiza.css", :rel => "stylesheet"}/
+    %script{:src => "/javascript/uiza.min.js"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'

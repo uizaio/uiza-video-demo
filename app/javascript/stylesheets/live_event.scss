@@ -174,7 +174,8 @@
     }
     .action {
       padding-top: 5px;
-      display: flex;
+      // display: flex;
+      display: none;
       .broadcasting {
       }
       .get-link-btn {
@@ -219,10 +220,56 @@
         }
       }
     }
+    .action-offline {
+      padding-top: 5px;
+      display: flex;
+      // display: none;
+      .broadcasting {
+      }
+      .get-link-btn {
+        width: 94px;
+        height: 30px;
+        background: rgba(220, 53, 69, 0.22);
+        border: 1px solid rgba(220, 53, 69, 0.22);;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding-top: 7px;
+        margin-left: 20px;;
+        .label {
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 15px;
+          color: #FFFFFF;
+          text-align: center;
+        }
+      }
+      .get-embed-btn {
+        width: 108px;
+        height: 30px;
+        background: rgba(210, 213, 215, 0.07);
+        border: 1px solid #D2D5D7;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding-top: 7px;
+        margin-left: 20px;;
+        .label {
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 15px;
+          text-align: center;
+
+          color: #7E7E7E;
+        }
+      }
+    }
   }
   .streaming-block {
     width: 807px;
-    height: 100px;
+    // height: 100px;
     margin: auto;
     .info {
       display: flex;
@@ -249,6 +296,13 @@
           box-sizing: border-box;
           border-radius: 4px;
           margin-right: 26px;
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 15px;
+          color: #152935;
+          padding-left: 5px;
         }
         .icon-copy {
           position: absolute;
@@ -280,6 +334,13 @@
           border: 1px solid #DFE3E6;
           box-sizing: border-box;
           border-radius: 4px;
+          font-family: $ibm-font;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 15px;
+          color: #152935;
+          padding-left: 5px;
         }
         .icon-copy {
           position: absolute;

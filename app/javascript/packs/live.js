@@ -68,7 +68,7 @@ $(document).ready(function() {
   function liveGetInfoSuccess (res) {
     console.log(res);
     let streamKey = res.data.live.stream_key;
-    $('.ingest_key').val(streamUrl);
+    $('.ingest_key').val(streamKey);
     let streamUrl = res.data.live.stream_url;
     $('.stream_url').val(streamUrl);
     $('.btn-start-stream').css("display", "block");

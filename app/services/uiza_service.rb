@@ -85,7 +85,7 @@ class UizaService
       req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities"
       req.headers['Authorization'] = authorization_key
       req.headers['Content-Type'] = 'application/json'
-      req.body = {name: name, description: des, region: region}.to_json
+      req.body = {name: name, description: des, region: region, dvr: true}.to_json
     end
 
     if res.status == 200
@@ -101,7 +101,6 @@ class UizaService
       req.headers['Authorization'] = authorization_key
       req.headers['Content-Type'] = 'application/json'
     end
-
     if res.status == 200
       return JSON.parse res.body
     else
@@ -124,7 +123,18 @@ class UizaService
     end
   end
 
-  def live_session()
+  def live_sessions()
+    res = Faraday.put do |req|
+      req.url "#{ENV['UIZA_LIVE_BASE_API']}/v1/live_entities/#{uiza_id}"
+      req.headers['Authorization'] = authorization_key
+      req.headers['Content-Type'] = 'application/json'
+      req.body = {name: name, description: des}.to_json
+    end
 
+    if res.status == 200
+      return JSON.parse res.body
+    else
+      return nil
+    end
   end
 end

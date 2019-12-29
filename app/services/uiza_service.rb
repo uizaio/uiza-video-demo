@@ -27,7 +27,6 @@ class UizaService
         req.headers['Authorization'] = authorization_key
         req.headers['Content-Type'] = 'application/json'
       end
-      binding.pry
       if res.status == 200
         return JSON.parse res.body
       else
@@ -64,7 +63,6 @@ class UizaService
         req.headers['Content-Type'] = 'application/json'
         req.body = { name: name, url: url, inputType: 'HTTP' }.to_json
       end
-      binding.pry
       if res.status == 200
         return JSON.parse res.body
       else
@@ -101,7 +99,6 @@ class UizaService
         req.headers['Authorization'] = authorization_key
         req.headers['Content-Type'] = 'application/json'
       end
-      binding.pry
       if res.status == 200
         return JSON.parse res.body
       else
@@ -133,7 +130,6 @@ class UizaService
         req.headers['Authorization'] = authorization_key
         req.headers['Content-Type'] = 'application/json'
       end
-      binding.pry
       if res.status == 200
         return JSON.parse res.body
       else

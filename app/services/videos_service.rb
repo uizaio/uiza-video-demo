@@ -10,20 +10,20 @@ class VideosService
 
       # Upload to Uiza
       uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
-      entity = uiza_service.video_create(object_key, '', uploaded_url)
-
+      entity = uiza_service.video_create(object_key, uploaded_url)
       # Publish to CDN
-      uiza_service.video_publish(entity.id)
+      uiza_service.video_publish(entity['id'])
 
       # Create upload document
-      video = Video.create(name: name, status: 2, uiza_id: entity.id)
+      video = Video.create(name: name, status: 2, uiza_id: entity['id'])
       video.view_url = view_url(video)
       video.embbed = embbed_video(video)
       video.save
 
       [true, video, 200]
     rescue Exception => e
-      [false, e.errors, 422]
+      puts e.message
+      [false, e.message, 422]
     end
   end
 

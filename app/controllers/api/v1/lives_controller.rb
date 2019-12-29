@@ -19,7 +19,7 @@ class Api::V1::LivesController < BaseApiController
     uiza_id = params[:uiza_id]
     live = Live.where(uiza_id: uiza_id).first
 
-    uiza_service = UizaService.new(ENV['UIZA_LIVE_API_KEY'])
+    uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
     live_entity = uiza_service.live_entity(uiza_id)
     live_entity_obj = Api::V1::Lives::EntityViewObject.new(live_entity, live).to_object
     render json: {

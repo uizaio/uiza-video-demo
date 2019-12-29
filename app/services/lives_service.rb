@@ -2,7 +2,7 @@ class LivesService
   def create(name, des)
     begin
       # Create uiza entity
-      uiza_service = UizaService.new(ENV['UIZA_LIVE_API_KEY'])
+      uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
       res = uiza_service.live_create(name, des, ENV['UIZA_LIVE_REGION'])
 
       # Create upload document

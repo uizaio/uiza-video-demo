@@ -67,6 +67,6 @@ end
 
 gem 'sentry-raven'
 gem 'newrelic_rpm'
-gem 'uiza'
+# gem 'uiza'
 gem 'aws-sdk-s3'
 gem 'faraday'

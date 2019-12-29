@@ -5,7 +5,7 @@ class LivesController < ApplicationController
 
   def detail
     @live = Live.find_by_code(params[:code]).first
-    uiza_service = UizaService.new(ENV['UIZA_LIVE_API_KEY'])
+    uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
     @uiza_live_info = uiza_service.live_entity(@live.uiza_id)
     if @uiza_live_info && @uiza_live_info['ingest']
       @live.update(
@@ -17,7 +17,7 @@ class LivesController < ApplicationController
 
   def show
     @live = Live.find_by_code(params[:code]).first
-    uiza_service = UizaService.new(ENV['UIZA_LIVE_API_KEY'])
+    uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
     @uiza_live_info = uiza_service.live_entity(@live.uiza_id)
     if @uiza_live_info && @uiza_live_info['ingest']
       @live.update(

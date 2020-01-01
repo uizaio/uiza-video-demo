@@ -179,4 +179,10 @@ $(document ).ready(function() {
     }
   }  
   redirectPageView();
+
+  $('#terms-cond').click(function(){
+    $("#terms-cond-modal").modal();
+  })
+
+
 });

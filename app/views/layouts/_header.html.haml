@@ -4,11 +4,105 @@
       #header-uiza
         %img.uiza-logo{:alt => "Smiley face",:src => "/img/icon/uiza_logo_color.png", :onclick => "location.href='/';"}
         .block-signin-signup
+          .terms#terms-cond
+            Terms & Condition
           .btn-sign-up{:onclick => "location.href='#{ENV['UIZA_SIGNUP_URL']}';"}
             %span Sign up
           .btn-sign-in{:onclick => "location.href='#{ENV['UIZA_SIGNIN_URL']}';"}
             %span Sign in
 
 
+#terms-cond-modal.modal.fade
+  .modal-dialog.modal-xl
+    .modal-content
+      / Modal Header
+      .modal-header
+        %h4.modal-title Term & Condition
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      / Modal body
+      .modal-body
+        %h1{:dir => "ltr"}
+          UIZA Terms and Conditions of Service
+        %p{:dir => "ltr"}
+          These Terms of Service ("Terms") govern your access to and use of the UIZA
+          website, apps, APIs, and widgets.
+        %p{:dir => "ltr"}
+          By accepting these terms, either by clicking a box indicating your
+          acceptance, by downloading our mobile application, establishing an account,
+          using our services, and/or navigating our website, you agree that (a) you
+          have read and understood the terms; (b) represent that you are at least 18
+          years old; (c) you can enter into a binding contract; and (d) you accept
+          the terms and agree that you are legally bound by its terms as well as the
+          terms of an underlying video project brief which is expressly incorporated
+          and referenced herein.
+        %p{:dir => "ltr"}
+          If you are unsure as to the terms set herein, please do not proceed further
+          and contact support at
+          %a{:href => "mailto:support@uiza.io"} support@uiza.io
+        %div
+          %br
+        %p
+          %b 1. UIZA PLATFORM.
+          %span These UIZA PTE LTD. ("UIZA," "Company," "we," "us" or
+          "our") Terms of Service (the "Terms") govern how you may access and use:
+          Streamwiz.io and any other website where these Terms are posted
+          (collectively, the "Site"); .
+        %p 
+          %b 2. LICENSE AND USE RESTRICTIONS. 
+          %span you agree that you will not, and will not assist or enable others to:
+          %ul
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                identify or refer to Company, the Site, Tools, or Service in a
+                manner that could reasonably imply an endorsement, relationship or
+                affiliation with or sponsorship between you or a third party and
+                Company, other than your permitted use of the Service and Analytics
+                Data under these Terms;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                copy, rent, lease, sell, transfer, assign, sublicense, dissemble,
+                reverse engineer, decode or decompile, modify, alter, scrape, or
+                create derivative works of any part of the Site, Tools or Service;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                use the Site, Tools or Service in a manner that impacts the
+                stability of Company's servers, the operation or performance of the
+                Services, or the behavior of other applications using the Service;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                use the Site, Tools or Service in any manner or for any purpose
+                that violates any applicable law, regulation, legal requirement or
+                obligation, contractual obligation, or any right of any person
+                including, but not limited to, intellectual property rights, rights
+                of privacy and/or rights of personality, or which otherwise may be
+                harmful (in Company's sole discretion) to Company, its providers,
+                its suppliers, end users of the Site, or your end users;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                use the Site, Tools or Service in a manner that could reasonably be
+                interpreted to suggest that the use represents the views of
+                Company;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                share passwords or authentication credentials for the Site or
+                Service, impersonate another person or otherwise misrepresent your
+                affiliation with a person or entity, conduct fraud, or hide or
+                attempt to hide your identity; or
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                bypass the measures we may use to prevent or restrict access to the
+                Site or Service, including without limitation features that prevent
+                or restrict use or copying of any content or enforce limitations on
+                use of the Site or Service or the content therein.
+        %p{:dir => "ltr"}
+          %b 3. TOOLS AND SERVICE CHANGES. 
+          %span The Site, Tools and Service all are
+          subject to change from time to time, in Company's sole discretion,
+          without prior notice to you. Company has no obligation to update,
+          correct, maintain, or continue to provide any aspect of the Site,
+          Tools or Service. We may require action on your part before you may
+          use any updated or modified Service, including activation through
+          your Company account or acceptance of new or additional terms.
 
-        
+
+

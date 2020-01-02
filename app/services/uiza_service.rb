@@ -61,8 +61,7 @@ class UizaService
   def video_play_url(uiza_id)
     # Get token
     token_res = Faraday.post do |req|
-      req.url "https://ap-southeast-1-api.uiza.co/api/public/v4/media/entity/playback/token"
-      # req.headers['Authorization'] = ENV['UIZA_GET_PLAY_API_KEY']
+      req.url ENV['UIZA_GET_TOKEN_URL']
       req.headers['Content-Type'] = 'application/json'
       req.body = {entity_id: uiza_id, appId: ENV['UIZA_APP_ID'], content_type: 'stream'}.to_json
     end
@@ -74,6 +73,7 @@ class UizaService
         req.headers['Authorization'] = token
         req.headers['Content-Type'] = 'application/json'
       end
+
       if res.status == 200
         return JSON.parse res.body
       else

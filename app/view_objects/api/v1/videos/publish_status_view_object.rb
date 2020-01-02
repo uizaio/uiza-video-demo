@@ -1,14 +1,14 @@
 class Api::V1::Videos::PublishStatusViewObject
-  attr_accessor :progress, :status
+  attr_accessor :process, :status
 
   def initialize(data)
-    @progress = data[:progress]
-    @status = data[:status]
+    @process = data['process']
+    @status = data['status']
   end
 
   def to_object
     {
-      progress: progress,
+      process: process,
       status: status
     }
   end

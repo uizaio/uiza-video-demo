@@ -1,9 +1,7 @@
-%script{:src => "https://sdk.uiza.io/uizaplayer.js"}
-/ 2. The video player will prepend the player into this <div> tag. You should create css style for this tag
 .row
   .col-md-3
   .col-md-6
-    #player
+    %video#player{:autoplay => "", :crossorigin => "", "data-uiza-provider" => "hlsjs", :muted => "", :playsinline => ""}
   .col-md-3
 :javascript
   var player = new Uiza(document.getElementById('player'), {

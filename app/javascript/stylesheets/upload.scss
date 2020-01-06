@@ -598,7 +598,7 @@
   font-family: $ibm-font;
   font-style: normal;
   .modal-content {
-    overflow-y: scroll;
+    
     height: 690px;
     .modal-header {
       background: #F4F5F6;
@@ -614,6 +614,12 @@
       .close {
         padding: 0 16px 0 0;
       }
+    }
+    .modal-body {
+      overflow-y: scroll;
+      font-size: 14px;
+      font-family: $ibm-font;
+      padding: 20px;
     }
   }
 }

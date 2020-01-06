@@ -4,11 +4,219 @@
       #header-uiza
         %img.uiza-logo{:alt => "Smiley face",:src => "/img/icon/uiza_logo_color.png", :onclick => "location.href='/';"}
         .block-signin-signup
+          .terms#terms-cond
+            Terms & Condition
           .btn-sign-up{:onclick => "location.href='#{ENV['UIZA_SIGNUP_URL']}';"}
             %span Sign up
           .btn-sign-in{:onclick => "location.href='#{ENV['UIZA_SIGNIN_URL']}';"}
             %span Sign in
 
 
+#terms-cond-modal.modal.fade
+  .modal-dialog.modal-xl
+    .modal-content
+      / Modal Header
+      .modal-header
+        %h4.modal-title Term & Condition
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      / Modal body
+      .modal-body
+        %h4{:dir => "ltr"}
+          UIZA Terms and Conditions of Service
+        %p{:dir => "ltr"}
+          These Terms of Service ("Terms") govern your access to and use of the UIZA
+          website, apps, APIs, and widgets.
+        %p{:dir => "ltr"}
+          By accepting these terms, either by clicking a box indicating your
+          acceptance, by downloading our mobile application, establishing an account,
+          using our services, and/or navigating our website, you agree that (a) you
+          have read and understood the terms; (b) represent that you are at least 18
+          years old; (c) you can enter into a binding contract; and (d) you accept
+          the terms and agree that you are legally bound by its terms as well as the
+          terms of an underlying video project brief which is expressly incorporated
+          and referenced herein.
+        %p{:dir => "ltr"}
+          If you are unsure as to the terms set herein, please do not proceed further
+          and contact support at
+          %a{:href => "mailto:support@uiza.io"} support@uiza.io
+        %div
+          %br
+        %p
+          %b 1. UIZA PLATFORM.
+          %span These UIZA PTE LTD. ("UIZA," "Company," "we," "us" or
+          "our") Terms of Service (the "Terms") govern how you may access and use:
+          Streamwiz.io and any other website where these Terms are posted
+          (collectively, the "Site"); .
+        %p 
+          %b 2. LICENSE AND USE RESTRICTIONS. 
+          %span you agree that you will not, and will not assist or enable others to:
+          %ul
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                identify or refer to Company, the Site, Tools, or Service in a
+                manner that could reasonably imply an endorsement, relationship or
+                affiliation with or sponsorship between you or a third party and
+                Company, other than your permitted use of the Service and Analytics
+                Data under these Terms;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                copy, rent, lease, sell, transfer, assign, sublicense, dissemble,
+                reverse engineer, decode or decompile, modify, alter, scrape, or
+                create derivative works of any part of the Site, Tools or Service;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                use the Site, Tools or Service in a manner that impacts the
+                stability of Company's servers, the operation or performance of the
+                Services, or the behavior of other applications using the Service;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                use the Site, Tools or Service in any manner or for any purpose
+                that violates any applicable law, regulation, legal requirement or
+                obligation, contractual obligation, or any right of any person
+                including, but not limited to, intellectual property rights, rights
+                of privacy and/or rights of personality, or which otherwise may be
+                harmful (in Company's sole discretion) to Company, its providers,
+                its suppliers, end users of the Site, or your end users;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                use the Site, Tools or Service in a manner that could reasonably be
+                interpreted to suggest that the use represents the views of
+                Company;
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                share passwords or authentication credentials for the Site or
+                Service, impersonate another person or otherwise misrepresent your
+                affiliation with a person or entity, conduct fraud, or hide or
+                attempt to hide your identity; or
+            %li{:dir => "ltr"}
+              %p{:dir => "ltr"}
+                bypass the measures we may use to prevent or restrict access to the
+                Site or Service, including without limitation features that prevent
+                or restrict use or copying of any content or enforce limitations on
+                use of the Site or Service or the content therein.
+        %p{:dir => "ltr"}
+          %b 3. TOOLS AND SERVICE CHANGES. 
+          %span The Site, Tools and Service all are
+          subject to change from time to time, in Company's sole discretion,
+          without prior notice to you. Company has no obligation to update,
+          correct, maintain, or continue to provide any aspect of the Site,
+          Tools or Service. We may require action on your part before you may
+          use any updated or modified Service, including activation through
+          your Company account or acceptance of new or additional terms.
+        %p{:dir => "ltr"}
+          %b 4. USER CONTENT.
+          %span You agree not to post, upload, transmit or provide
+          any User Content that: (i) may create a risk of harm, loss,
+          physical or mental injury, emotional distress, death, disability,
+          disfigurement, or physical or mental illness to you or any other
+          person; (ii) may create a risk of any other loss or damage to any
+          person or property; (iii) may constitute or contribute to a crime
+          or tort; (iv) contains any information or content that we deem to
+          be unlawful, harmful, abusive, racially or ethnically offensive,
+          defamatory, infringing, invasive of personal privacy or publicity
+          rights, harassing, humiliating to other people (publicly or
+          otherwise), libelous, threatening, profane, obscene, or otherwise
+          objectionable; (v) contains any information or content that is
+          illegal or that you do not have a right to make available under any
+          law or under contractual or fiduciary relationships; or (vi)
+          contains any information or content that you know is not correct
+          and current. You agree that any User Content that you post does not
+          and will not infringe or violate third-party rights of any kind,
+          including without limitation any privacy, patent, copyright,
+          trademark, trade secret, or other third party or intellectual
+          property rights.
+        %p{:dir => "ltr"}
+          %b 5. COMPANY'S DISCLAIMER OF WARRANTIES.
+          %span THE SITE, TOOLS, ANALYTICS DATA
+          AND SERVICE ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND
+          WHETHER EXPRESS, IMPLIED, OR STATUTORY. EXCEPT TO THE EXTENT
+          REQUIRED BY APPLICABLE LAW, COMPANY AND ITS AFFILIATES, SERVICE
+          PROVIDERS, AND AGENTS EACH DISCLAIM ALL WARRANTIES, WHETHER
+          EXPRESS, IMPLIED OR STATUTORY, REGARDING THE SITE, TOOLS, ANALYTICS
+          DATA AND SERVICE, INCLUDING WITHOUT LIMITATION ANY AND ALL IMPLIED
+          WARRANTIES OF MERCHANTABILITY, ACCURACY, RESULTS OF USE,
+          RELIABILITY, FITNESS FOR A PARTICULAR PURPOSE, PRIVACY, SECURITY,
+          TITLE, INTERFERENCE WITH QUIET ENJOYMENT, AND NON-INFRINGEMENT.
+        %p{:dir => "ltr"}
+          %b 6. LIABILITY LIMITATION.
+          %span REGARDLESS OF WHETHER ANY REMEDY SET FORTH IN THESE
+          TERMS FAILS OF ITS ESSENTIAL PURPOSE OR OTHERWISE, TO THE FULLEST EXTENT
+          PERMITTED BY LAW, IN NO EVENT WILL THE COMPANY OR ITS AFFILIATES, SERVICE
+          PROVIDERS, OR AGENTS BE LIABLE TO YOU OR TO ANY THIRD PARTY UNDER ANY TORT,
+          CONTRACT, NEGLIGENCE, STRICT LIABILITY OR OTHER LEGAL OR EQUITABLE THEORY
+          FOR ANY DAMAGES.
+        %p{:dir => "ltr"}
+          %b 7. INDEMNITY.
+          %span You agree that the Company shall have no liability
+          whatsoever for any use you make of the Site, Tools, User Content,
+          Analytics Data or Service.
+        %p{:dir => "ltr"}
+          %b 8. TERM AND TERMINATION. 
+          %span These Terms shall continue until terminated
+          as set forth in this Section. Either party may terminate these
+          Terms by written notice at any time per the "Notices" Section in
+          these Terms, for any reason, or for no reason, however, the Terms
+          shall continue in effect for the duration of any Subscription
+          Period. Any termination of these Terms shall also terminate the
+          license granted hereunder. Upon termination of these Terms for any
+          reason, and for termination by you to be effective: you shall
+          destroy and remove from all websites, applications, computers, hard
+          drives, networks, and other storage media all copies of the Tools
+          and Service (other than the Analytics Data), you shall stop using
+          all aspects of the Service, and you shall certify to Company that
+          such actions have occurred. Company shall have the right to inspect
+          and audit your websites, applications, and facilities to confirm
+          the foregoing. Sections 2-3 and 6-13 of these Terms shall survive
+          termination.
+        %p{:dir => "ltr"}
+          %b 9. CONFIDENTIALITY.
+          %span "Confidential Information" shall mean the Tools,
+          User Content, Analytics Data and Service and all other information
+          disclosed to you that Company characterizes as confidential at the
+          time of its disclosure, or that reasonably ought to be understood
+          by you as confidential, except for information which you can
+          demonstrate: (a) is previously rightfully known to you without
+          restriction on disclosure; (b) is or becomes, from no act or
+          failure to act on your part, generally known in the relevant
+          industry or public domain; (c) is disclosed to you by a third party
+          as a matter of right and without restriction on disclosure; or (d)
+          is independently developed by you without access to the
+          Confidential Information. You shall use your best efforts to
+          preserve and protect the confidentiality of the Confidential
+          Information at all times, both during the term hereof and for a
+          period of at least 3 years after termination of these Terms,
+          provided, however, that any source code you receive shall be held
+          in confidence in perpetuity (except as expressly allowed by
+          Company, such as to the extent needed to comply with an open source
+          license). You will not disclose Confidential Information except to
+          employees and agents who need to know it and have agreed in writing
+          to keep it confidential; only those parties may use the
+          Confidential Information, and only to exercise your rights and
+          fulfill your obligations under these Terms, while using at least a
+          reasonable degree of care to protect it; provided, however, that
+          you shall not disclose, disseminate or otherwise publish or
+          communicate any source code you receive to any person, firm,
+          corporation or other third party without the prior written consent
+          of Company.
+        %p{:dir => "ltr"}
+          %b 10. THIRD-PARTY SERVICES. 
+          %span The Service may contain links to third-party
+          websites, advertisers, services, special offers, or other events or
+          activities that are not owned or controlled by Company. Company
+          does not endorse or assume any responsibility for any such
+          third-party sites, information, materials, products, or services.
+        %p{:dir => "ltr"}
+          %b 11. GOVERNING LAW. 
+          %span This Agreement shall be governed by and construed in
+          accordance solely with the laws of the Republic of Singapore.
 
-        
+
+
+
+
+
+
+
+
+
+

@@ -19,3 +19,4 @@ import '../stylesheets/application.scss'
 import './bootstrap_custom.js'
 import './upload.js'
 import './live.js'
+

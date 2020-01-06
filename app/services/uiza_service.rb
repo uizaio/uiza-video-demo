@@ -8,6 +8,25 @@ class UizaService
     @uiza_base_api_url = ENV['UIZA_BASE_API_URL']
   end
 
+  def get_aws_key()
+    begin
+      res = Faraday.get do |req|
+        req.url "#{uiza_base_api_url}/api/public/v4/admin/app/config/aws"
+        req.headers['Authorization'] = authorization_key
+        req.headers['Content-Type'] = 'application/json'
+      end
+      if res.status == 200
+        return JSON.parse res.body
+      else
+        puts "Request fail. Status: #{res.status}. Message: #{res.body}"
+        return nil
+      end
+    rescue Exception => e
+      puts "ERROR: Request error. Message: #{e.message}"
+      return nil
+    end
+  end
+
   # def video_entity(uiza_id)
   #   begin
   #     entity = Uiza::Entity.retrieve uiza_id
@@ -39,6 +58,34 @@ class UizaService
     end
   end
 
+  def video_play_url(uiza_id)
+    # Get token
+    token_res = Faraday.post do |req|
+      req.url ENV['UIZA_GET_TOKEN_URL']
+      req.headers['Content-Type'] = 'application/json'
+      req.body = {entity_id: uiza_id, appId: ENV['UIZA_APP_ID'], content_type: 'stream'}.to_json
+    end
+
+    token = (JSON.parse token_res.body)['data']['token']
+    begin
+      res = Faraday.get do |req|
+        req.url "#{ENV['UIZA_GET_PLAY_URL']}?entity_id=#{uiza_id}&app_id=#{ENV['UIZA_APP_ID']}&type_content=stream"
+        req.headers['Authorization'] = token
+        req.headers['Content-Type'] = 'application/json'
+      end
+
+      if res.status == 200
+        return JSON.parse res.body
+      else
+        puts "Request fail. Status: #{res.status}. Message: #{res.body}"
+        return nil
+      end
+    rescue Exception => e
+      puts "ERROR: Request error. Message: #{e.message}"
+      return nil
+    end
+  end
+
   # def video_create(name, thumbnail, url)
   #   params = {
   #     name: name,
@@ -55,13 +102,13 @@ class UizaService
   #   end
   # end
 
-  def video_create(name, url)
+  def video_create(name)
     begin
       res = Faraday.post do |req|
         req.url "#{uiza_base_api_url}/v1/video_entities"
         req.headers['Authorization'] = authorization_key
         req.headers['Content-Type'] = 'application/json'
-        req.body = { name: name, url: url, inputType: 'HTTP' }.to_json
+        req.body = { name: name, url: 's3+uiza+<entity_id>', inputType: 'S3_UIZA' }.to_json
       end
       if res.status == 200
         return JSON.parse res.body
@@ -126,7 +173,7 @@ class UizaService
   def video_publish_status(uiza_id)
     begin
       res = Faraday.get do |req|
-        req.url "#{uiza_base_api_url}/v1/video_entities/#{uiza_id}/publish"
+        req.url "#{uiza_base_api_url}/v1/video_entities/#{uiza_id}/publish/status"
         req.headers['Authorization'] = authorization_key
         req.headers['Content-Type'] = 'application/json'
       end

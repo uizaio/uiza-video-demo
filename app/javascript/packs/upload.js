@@ -77,7 +77,7 @@ $(document ).ready(function() {
     ajax.upload.addEventListener("progress", progressHandler);
     ajax.addEventListener("error", errorHandler);
     ajax.addEventListener("abort", abortHandler);
-    ajax.open("POST", "api/v1/videos");
+    ajax.open("POST", "/api/v1/videos");
     ajax.onreadystatechange = function() {
       if (this.readyState == 4) {
         if(this.status == 200) {

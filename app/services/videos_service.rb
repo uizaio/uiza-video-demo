@@ -1,16 +1,28 @@
 class VideosService
   def create(name, upload_data)
     begin
-      # Upload to S3 and get URL
-      aws_s3_service = AwsS3Service.new(ENV['AWS_REGION'], ENV['AWS_BUCKET'])
-      object_key = upload_data.original_filename
-
-      aws_s3_service.upload(object_key, upload_data.tempfile)
-      uploaded_url = ENV['AWS_FILE_URL'] + object_key
-
-      # Upload to Uiza
       uiza_service = UizaService.new(ENV['UIZA_API_KEY'])
-      entity = uiza_service.video_create(object_key, uploaded_url)
+      video_name = upload_data.original_filename
+      extension_video = File.extname(video_name)
+      # Create uiza entity
+      entity = uiza_service.video_create(video_name)
+      uiza_id = entity['id']
+      s3_fix_file_name = "s3+uiza+#{uiza_id}#{extension_video}"
+      puts "uiza_id: #{uiza_id}"
+
+      # Get S3 info
+      s3_info = uiza_service.get_aws_key()
+      region = s3_info['data']['region_name']
+      access_key = s3_info['data']['temp_access_id']
+      secret_key = s3_info['data']['temp_access_secret']
+      session_token = s3_info['data']['temp_session_token']
+      bucket_name = s3_info['data']['bucket_name']
+      bucket = bucket_name.split('/')[0]
+
+      # Upload to S3 and get URL
+      aws_s3_service = AwsS3Service.new(region, bucket, access_key, secret_key, session_token)
+      aws_s3_service.upload(bucket_name, upload_data.tempfile, video_name, s3_fix_file_name)
+
       # Publish to CDN
       uiza_service.video_publish(entity['id'])
 
@@ -22,7 +34,7 @@ class VideosService
 
       [true, video, 200]
     rescue Exception => e
-      puts e.message
+      puts "Video Service: #{e.message}"
       [false, e.message, 422]
     end
   end

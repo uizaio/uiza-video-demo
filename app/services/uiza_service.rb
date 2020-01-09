@@ -208,7 +208,6 @@ class UizaService
       req.headers['Content-Type'] = 'application/json'
       req.body = {name: name, description: des, region: region, dvr: true}.to_json
     end
-
     if res.status == 200
       return JSON.parse res.body
     else

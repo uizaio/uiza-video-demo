@@ -11,39 +11,5 @@
         sdk: '/javascript/hls.min-v0.12.4.js'
       },
     },
-    src: "#{@uiza_live_info['playback']['hls']  if @uiza_live_info.present?}",
+    src: "#{@hls_url}",
   });
-/ :javascript
-/   // 3. This code creates an UIZA player, and return the player for the callback
-/   UZ.Player.init(
-/     '#player', // player element, exp: #element_id, .element_class
-/     {
-/       appId: "#{ENV['UIZA_APP_ID']}",
-/       playerId: "#{ENV['UIZA_PLAYER_ID']}", // option
-/       playerVersion: 4, // you are using the newest player, player version support API version
-/       entityId: "#{@video.uiza_id}",
-/       width: '100%', // player width, percentage or pixel, exp: '400px'
-/       height: '471px', // player height, percentage or pixel, exp: '200px'
-/     },
-/     function(player) {
-/       // 4. You can add logo at here
-/       var homepage = 'https://www.uiza.io'; // change homepage here
-/       var logo = window.location.origin + '/img/icon/video_uiza_logo.png'
-/       var style_logo = 'position: absolute; top: 23px; right: 64px; z-index: 999999;';
-/       var style_logo_img = 'display: block; height: 32px; width: auto; margin: 10px;';
-/       var logo_html = '<div style="' + style_logo + '">' +
-/         '<a href="' + homepage + '" target="_blank">' +
-/           '<img style="' + style_logo_img + '" src="'+ logo +'"/>' +
-/         '</a>' +
-/       '</div>';
-
-/       player.append('.vjs-v3', logo_html);
-/       // 5. You can add event listeners at here
-/       player.on('play', function() {
-/         console.log('play');
-/       });
-/       player.on('pause', function() {
-/         console.log('pause');
-/       });
-/     }
-/   );

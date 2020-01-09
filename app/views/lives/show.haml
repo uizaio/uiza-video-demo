@@ -11,5 +11,5 @@
         sdk: '/javascript/hls.min-v0.12.4.js'
       },
     },
-    src: "#{@hls_url}"
+    src: "#{@uiza_live_info['playback']['hls']  if @uiza_live_info.present?}"
   });
